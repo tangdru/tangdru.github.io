@@ -1,0 +1,50 @@
+Ranking,Port,Country,Region,Container,Longitude,Latitude
+1,Shanghai,China,East Asia & Pacific,35290000.00,121.498,31.24
+2,Singapore,Singapore,East Asia & Pacific,33870000.00,103.804,1.267
+3,Shenzhen,China,East Asia & Pacific,24040000.00,113.947,22.504
+4,Hong Kong,China,East Asia & Pacific,22230000.00,114.065,22.515
+5,Ningbo-Zhoushan,China,East Asia & Pacific,18700000.00,122.207,29.985
+6,Busan,South Korea,East Asia & Pacific,18680000.00,129.042,35.104
+7,Guangzhou,China,East Asia & Pacific,16600000.00,113.305,23.127
+8,Qingdao,China,East Asia & Pacific,16580000.00,119.614,39.91
+9,Jebel Ali (Dubai),United Arab Emirates,Middle East & North Africa,15250000.00,55.058,25.018
+10,Tianjin,China,East Asia & Pacific,14060000.00,117.746,38.982
+11,Rotterdam,Netherlands,Europe & Central Asia,12300000.00,4.485,51.905
+12,Port Klang,Malaysia,East Asia & Pacific,10950000.00,101.392,3.004
+13,Kaohsiung,Taiwan,East Asia & Pacific,10590000.00,120.345,22.575
+14,Dalian,China,East Asia & Pacific,10010000.00,121.662,38.931
+15,Hamburg,Germany,Europe & Central Asia,9730000.00,9.968,53.507
+16,Antwerp,Belgium,Europe & Central Asia,8980000.00,4.276,51.348
+17,Xiamen,China,East Asia & Pacific,8570000.00,118.077,24.475
+18,Tanjung Pelepas,Malaysia,East Asia & Pacific,8550000.00,103.556,1.345
+19,Los Angeles,United States,North America,8340000.00,-118.26,33.738
+20,Long Beach,United States,North America,6820000.00,-118.216,33.754
+21,Laem Chabang,Thailand,East Asia & Pacific,6580000.00,100.892,13.058
+22,Tanjung Priok (Jakarta),Indonesia,East Asia & Pacific,6500000.00,106.889,-6.11
+23,Ho Chi Minh City (Saigon),Vietnam,East Asia & Pacific,6390000.00,106.707,10.772
+24,Bremen/Bremerhaven,Germany,Europe & Central Asia,5780000.00,8.572,53.503
+25,New York and New Jersey,United States,North America,5770000.00,-74.09,40.676
+26,Yingkou,China,East Asia & Pacific,5610000.00,122.046,40.691
+27,Lianyungang,China,East Asia & Pacific,5010000.00,119.775,34.439
+28,Colombo,Sri Lanka,South Asia,4910000.00,79.846,6.947
+29,Tokyo,Japan,East Asia & Pacific,4890000.00,139.794,35.623
+30,Algeciras,Spain,Europe & Central Asia,4550000.00,-5.432,36.133
+31,Jawaharlal Nehru,India,South Asia,4450000.00,80.303,13.149
+32,Valencia,Spain,Europe & Central Asia,4440000.00,-0.203,39.674
+33,Jeddah,Saudi Arabia,Middle East & North Africa,4260000.00,39.166,21.458
+34,Felixstowe,United Kingdom,Europe & Central Asia,4100000.00,1.3,51.959
+35,Port Said,Egypt,Middle East & North Africa,3960000.00,32.313,31.244
+36,Khor Fakkan,United Arab Emirates,Middle East & North Africa,3800000.00,56.366,25.354
+37,Santos,Brazil,Latin America & Caribbean,3680000.00,-46.288,-23.969
+38,Manila,Philippines,East Asia & Pacific,3650000.00,120.968,14.587
+39,Piraeus,Greece,Europe & Central Asia,3590000.00,23.631,37.939
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,3490000.00,29.234,40.871
+41,Seattle/Tacoma,United States,North America,3430000.00,-122.412,47.265
+42,Savannah,United States,North America,3350000.00,-81.142,32.13
+43,Col—n,Panama,Latin America & Caribbean,3290000.00,-79.884,9.361
+44,Balboa,Panama,Latin America & Caribbean,3240000.00,-79.568,8.961
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,3110000.00,112.715,-7.216
+47,Taicang,China,East Asia & Pacific,3060000.00,121.193,31.659
+48,Salalah,Oman,Middle East & North Africa,3030000.00,54.001,16.947
+49,Gioia Tauro,Italy,Europe & Central Asia,2970000.00,15.908,38.457
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2940000.00,121.74,25.142

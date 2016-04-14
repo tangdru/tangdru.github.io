@@ -1,0 +1,32 @@
+html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+.container{
+    height:100%;
+    position:relative;
+    margin-top: 20px;
+}
+.plot{
+    position:relative;
+}
+.controls{
+    position:absolute;
+    top:50px;
+}
+
+svg text,body{
+    font-family:Helvetica Neue, Helvetica, Arial;
+    font-size:12px;
+}
+
+svg text{
+    fill:rgb(80,80,80);
+}
+.axis .domain{
+    display:none;
+}
+.axis line{
+    stroke:rgb(120,120,120);
+}
