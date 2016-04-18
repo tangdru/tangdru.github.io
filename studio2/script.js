@@ -1,8 +1,8 @@
 //var margin = {t:100,r:50,b:100,l:50},
-//    width = document.getElementById('canvas').clientWidth - margin.l - margin.r,
-//    height = document.getElementById('canvas').clientHeight - margin.t - margin.b;
+//    width = document.getElementById('.container').clientWidth - margin.l - margin.r,
+//    height = document.getElementById('.container').clientHeight - margin.t - margin.b;
 //
-//var canvas = d3.select('.canvas')
+//var svg = d3.select('#plot')
 //    .append('svg')
 //    .attr('width', width + margin.l + margin.r)
 //    .attr('height', height + margin.t + margin.b)
@@ -17,31 +17,36 @@ var svg = d3.select( "#plot" )
   .attr( "width", width )
   .attr( "height", height );
 
-var slider = d3.slider().axis(true).min(1945).max(2020);
+
+var slider = d3.slider().axis(true).min(1947).max(2016);
 var sliderLabel = d3.select("#slider")
     .append("div")
     .attr("class","sliderLabel")
     .append("text")
     .attr("x","0")
     .attr("y","0")
-    .text("Default");
+    .text("2016");
 
 var tooltip = d3.select("body").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
+
+var scaleX = d3.time.scale().range([0,width]).domain([new Date(1,1, 1947), new Date(1,1,2016)]);
 
 
 queue()
     .defer(d3.csv, 'data/infected_24march2016.csv', parseInfected)
     .defer(d3.csv, 'data/zikaTimeline.csv', parseTimeline)
     .defer(d3.json, 'data/zika.json')
+    .defer(d3.json, 'data/zika_binned.json')
     .defer(d3.json, 'data/map.json')
     .await(DataLoaded)
 
-function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
+function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
     console.log(zikaTime);
    // console.log(infected);
     console.log(zikaTweets);
+    console.log(zikaTweetsHr);
 
 
     // Parse timestamp in zikaTweets
@@ -54,7 +59,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
     
 //    var baseMap = svg.append( "g" );
     var projection = d3.geo.equirectangular()
-                                .scale(200)
+                                .scale(150)
                                 .translate([width/2, height/2])
                                 .precision(.1);
 
@@ -75,11 +80,21 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
             .attr("class","zikaTime")
             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-            .attr('r', 4)
+            .attr('r', 2)
 //            .style("stroke", 'rgba(255,255,255,1)') 
 //            .style('stroke-width', .1)
             .style('fill', 'rgba(155,55,55,.7)');
-    
+//trial    
+svg.selectAll('zikaTime')
+            .data(zikaTime)
+            .enter()
+            .append('circle')
+            .attr("class","zikaTime2")
+            .attr('cx', function(d){return scaleX(new Date(1,1,d.year))}) 
+            .attr('cy', 10)
+            .attr('r', 4)
+//            .attr('r', function(d){return d.infections})
+            .style('fill', 'rgba(155,55,55,.7)');
     
      svg.selectAll('tweets')
             .data(zikaTweets)
@@ -88,11 +103,11 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
             .attr("class","zikaTweets")
             .attr('cx', function(d){ return projection([d.x, d.y])[0]; })
             .attr('cy', function(d){ return projection([d.x, d.y])[1]; })
-            .attr('r', 2)
+            .attr('r', 3)
             .style("stroke", 'rgba(255,255,255,1)')
             .style('stroke-width', .1)
             .style('fill', 'rgba(83,121,153,.5)');
-//     
+       
 //      svg.selectAll('infections')
 //             .data(infected)
 //             .enter()
@@ -105,20 +120,22 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
 //             .style('fill', 'rgba(175,55,55,.5)')
 //             .on("mouseover", function(d) {
 //             tooltip.transition()
-//                 .duration(200)
+//                 .duration(0)
 //                 .style("opacity", .9);
-//             tooltip.html(d.state + "<br/>"  + d.confirmed)
+//             tooltip.html(d.country + "<br/>"  + d.confirmed)
 //                 .style("left", (d3.event.pageX) + "px")
 //                 .style("top", (d3.event.pageY - 28) + "px");
 //             })
 //         .on("mouseout", function(d) {
-//             div.transition()
+//             tooltip.transition()
 //                 .duration(500)
 //                 .style("opacity", 0);
 //         })
 
     
     // Slider function
+      
+      
 
     slider.on("slide",function(event,value){
         var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
@@ -136,20 +153,27 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, mapData){
             return d.year<=intValue;
         })
             .transition()
-            .attr("r",function(){
-                if(d3.select(this).attr("class")=="zikaTime")
-                    return 3;
-                else
-                    return 2;
+            .attr("r",function(d) {
+            if (d.year-2<intValue && d.year<=intValue) {
+                return d.infections*4; 
+            } else {
+                return 0;
+            }
             });
     });
+    
 
+    
+    
     d3.select("#slider")
         .append("div")
         .attr("class","sliderItem")
         .call(slider);
      
 }
+
+
+
 
 
 function parseInfected(d){
