@@ -80,21 +80,22 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
             .attr("class","zikaTime")
             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-            .attr('r', 2)
+            .attr('r', 3)
 //            .style("stroke", 'rgba(255,255,255,1)') 
 //            .style('stroke-width', .1)
             .style('fill', 'rgba(155,55,55,.7)');
-//trial    
-svg.selectAll('zikaTime')
+
+    //timeline   
+svg.selectAll('zikaTimeline')
             .data(zikaTime)
             .enter()
             .append('circle')
             .attr("class","zikaTime2")
             .attr('cx', function(d){return scaleX(new Date(1,1,d.year))}) 
-            .attr('cy', 10)
-            .attr('r', 4)
+            .attr('cy', 6)
+            .attr('r',  4)
 //            .attr('r', function(d){return d.infections})
-            .style('fill', 'rgba(155,55,55,.7)');
+            .style('fill', 'rgba(155,55,55,.3)');
     
      svg.selectAll('tweets')
             .data(zikaTweets)
@@ -145,7 +146,7 @@ svg.selectAll('zikaTime')
         d3.selectAll(".zikaTime, .zikaTweets").filter(function(d){
             return d.year>intValue;
         })
-            .transition()
+            .transition(100)
             .attr("r","0");
 
         // Show circles which the year is smaller or equal
@@ -153,16 +154,26 @@ svg.selectAll('zikaTime')
             return d.year<=intValue;
         })
             .transition()
-            .attr("r",function(d) {
-            if (d.year-2<intValue && d.year<=intValue) {
-                return d.infections*4; 
-            } else {
-                return 0;
-            }
+            .attr("r",function(){
+                if(d3.select(this).attr("class")=="zikaTime")
+                    return 3;
+                else
+                    return 2;
             });
+//        d3.selectAll(".zikaTime, .zikaTweets").filter(function(d){
+//            return d.year<=intValue;
+//        })
+//            .transition(100)
+//            .attr("r",function(d) {
+//            if (d.year-2<intValue && d.year<=intValue) {
+//                return d.infections*3; 
+//            } else {
+//                return 0;
+//            }
+//            });
     });
     
-
+    
     
     
     d3.select("#slider")
