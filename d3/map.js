@@ -9,8 +9,8 @@
 //    .append('g')
 //    .attr('transform','translate('+margin.l+','+margin.t+')');
 
-var width = 960, 
-    height = 560;
+var width = 800, 
+    height = 300;
 
 var svg = d3.select( "#plot" )
   .append( "svg" )
@@ -49,7 +49,7 @@ function DataLoaded(err, ports, mapData){
 
     
     var projection = d3.geo.equirectangular()
-            .scale(200)
+            .scale(130)
             .translate([width/2, height/2])
             .precision(.1);
 
