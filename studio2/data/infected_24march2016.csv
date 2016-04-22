@@ -1,73 +1,77 @@
-Region,Country,State,lat,lng,year,month,confirmed,deaths
-North America,Canada,Biristh Columbia,51.410914,-120.984426,,,2,
-North America,Canada,Alberta,46.24928164,-63.13132512,,,1,
-North America,Canada,Quebec,46.83996909,-71.24561019,,,1,
-North America,United States,Alabama,33.263504,-86.772734,,,2,
-North America,United States,Arkansas,34.993918,-92.453286,,,1,
-North America,United States,California,37.489217,-121.258863,,,17,
-North America,United States,Colorado,39.065372,-105.738961,,,2,
-North America,United States,Connecticut,41.718762,-72.639721,,,1,
-North America,United States,Delaware,39.020483,-75.513127,,,3,
-North America,United States,District of Columbia,38.916898,-77.015953,,,3,
-North America,United States,Florida,28.206672,-81.402662,,,70,
-North America,United States,Georgia,32.819764,-83.238231,,,7,
-North America,United States,Hawaii,21.106411,-156.849502,,,5,
-North America,United States,Illinois,40.392959,-88.989103,,,9,
-North America,United States,Indiana,39.816376,-86.147908,,,4,
-North America,United States,Iowa,42.209716,-93.576967,,,4,
-North America,United States,Kansas,38.790611,-98.398811,,,1,
-North America,United States,Kentucky,37.626012,-85.115695,,,2,
-North America,United States,Louisiana,31.273596,-92.215417,,,2,
-North America,United States,Maryland,39.298725,-76.588968,,,5,
-North America,United States,Massachusetts,42.326001,-71.391779,,,3,
-North America,United States,Michigan,44.329798,-84.701938,,,2,
-North America,United States,Minnesota,45.935465,-94.523946,,,9,
-North America,United States,Missouri,38.709665,-92.429078,,,1,
-North America,United States,Montana,47.210578,-109.674458,,,1,
-North America,United States,Nebraska,41.766976,-100.082609,,,2,
-North America,United States,New Hampshire,43.814486,-71.599666,,,2,
-North America,United States,New Jersey,40.349908,-74.409382,,,2,
-North America,United States,New York,42.649838,-75.16468,,,43,
-North America,United States,North Carolina,35.714247,-79.692733,,,7,
-North America,United States,Ohio,40.086726,-82.809987,,,8,
-North America,United States,Oklahoma,35.369632,-97.309311,,,3,
-North America,United States,Oregon,44.199373,-120.867338,,,6,
-North America,United States,Pennsylvania,41.073248,-77.613301,,,8,
-North America,United States,Tennessee,35.96658,-86.305988,,,1,
-North America,United States,Texas,32.015553,-99.446398,,,23,
-North America,United States,Virginia,37.72906,-78.308905,,,7,
-North America,United States,Washington,47.549917,-120.732564,,,2,
-North America,United States,West Virginia,38.816951,-80.476695,,,5,
-North America,Mexico,,21.571239,-101.52849,,,151,
-Central America,Costa Rica,,9.882623,-83.809401,,,8,
-Central America,El Salvador,,13.81266,-88.805081,,,3,
-Central America,Guatemala,,15.863847,-90.1384,,,261,
-Central America,Honduras,,14.729238,-86.816143,,,2,
-Central America,Nicaragua,,12.702284,-85.025605,,,119,
-Central America,Panam¨¢,,8.854519,-80.036973,,,134,
-Latin Caribbean,Cuba,,21.849602,-78.865324,,,1,
-Latin Caribbean,Dominican Republic,,19.050322,-70.289877,,,18,
-Latin Caribbean,French Guiana,,3.94052,-53.109442,,,190,
-Latin Caribbean,Guadeloupe,,16.266547,-61.527425,,,104,
-Latin Caribbean,Haiti,,19.010991,-72.2746,,,5,
-Latin Caribbean,Martinique,,14.611751,-60.976075,,,12,
-Latin Caribbean,Puerto Rico,,18.245688,-66.460461,,,249,
-Latin Caribbean,Saint Martin,,18.08321,-63.05246,,,21,
-Andean,Bolivia,,-16.149928,-64.425778,,,12,
-Andean,Colombia,,4.277874,-73.275072,,,2355,
-Andean,Ecuador,,-1.567295,-78.433278,,,3,
-Andean,Venezuela,,7.648937,-65.54484,,,352,
-South Cone,Brazil,,-10.933223,-52.066886,,,534,
-South Cone,Paraguay,,-23.618674,-57.853605,,,7,
-Non Latin Caribbean,Aruba,,12.497309,-69.965889,,,4,
-Non Latin Caribbean,Barbados,,13.169924,-59.560332,,,7,
-Non Latin Caribbean,Bonaire,,12.184475,-68.269861,,,1,
-Non Latin Caribbean,Cura?ao,,12.179887,-68.9891,,,1,
-Non Latin Caribbean,Dominica,,15.416963,-61.343681,,,1,
-Non Latin Caribbean,Guyana,,4.414402,-58.848203,,,1,
-Non Latin Caribbean,Jamaica,,18.209535,-77.31238,,,1,
-Non Latin Caribbean,Saint Vincent and the Grenadines,,13.240749,-61.191682,,,1,
-Non Latin Caribbean,Sint Maarten,,18.044409,-63.057137,,,2,
-Non Latin Caribbean,Suriname,,3.982513,-55.808066,,,2,
-Non Latin Caribbean,Trinidad and Tobago,,10.4428,-61.236649,,,4,
-Non Latin Caribbean,United States Virgin Island,,17.732643,-64.759462,,,13,
+Region,Country,State,lat,lng,confirmed,suspected
+North America,Canada,Biristh Columbia,51.410914,-120.984426,2,0
+North America,Canada,Alberta,46.24928164,-63.13132512,1,0
+North America,Canada,Quebec,46.83996909,-71.24561019,1,0
+North America,United States,Alabama,33.263504,-86.772734,2,0
+North America,United States,Arkansas,34.993918,-92.453286,1,0
+North America,United States,California,37.489217,-121.258863,29,0
+North America,United States,Colorado,39.065372,-105.738961,2,0
+North America,United States,Connecticut,41.718762,-72.639721,1,0
+North America,United States,Delaware,39.020483,-75.513127,3,0
+North America,United States,District of Columbia,38.916898,-77.015953,3,0
+North America,United States,Florida,28.206672,-81.402662,83,0
+North America,United States,Georgia,32.819764,-83.238231,11,0
+North America,United States,Hawaii,21.106411,-156.849502,5,0
+North America,United States,Illinois,40.392959,-88.989103,10,0
+North America,United States,Indiana,39.816376,-86.147908,6,0
+North America,United States,Iowa,42.209716,-93.576967,4,0
+North America,United States,Kansas,38.790611,-98.398811,1,0
+North America,United States,Kentucky,37.626012,-85.115695,3,0
+North America,United States,Louisiana,31.273596,-92.215417,4,0
+North America,United States,Maine,45.361145,-69.148679,1,0
+North America,United States,Maryland,39.298725,-76.588968,7,0
+North America,United States,Massachusetts,42.326001,-71.391779,7,0
+North America,United States,Michigan,44.329798,-84.701938,2,0
+North America,United States,Minnesota,45.935465,-94.523946,12,0
+North America,United States,Mississippi,33.152598,-89.716911,3,0
+North America,United States,Missouri,38.709665,-92.429078,3,0
+North America,United States,Montana,47.210578,-109.674458,1,0
+North America,United States,Nebraska,41.766976,-100.082609,2,0
+North America,United States,Nevada,39.585646,-116.704457,2,0
+North America,United States,New Hampshire,43.814486,-71.599666,2,0
+North America,United States,New Jersey,40.349908,-74.409382,8,0
+North America,United States,New York,42.649838,-75.16468,54,0
+North America,United States,North Carolina,35.714247,-79.692733,9,0
+North America,United States,Ohio,40.086726,-82.809987,9,0
+North America,United States,Oklahoma,35.369632,-97.309311,3,0
+North America,United States,Oregon,44.199373,-120.867338,6,0
+North America,United States,Pennsylvania,41.073248,-77.613301,12,0
+North America,United States,Tennessee,35.96658,-86.305988,2,0
+North America,United States,Texas,32.015553,-99.446398,27,0
+North America,United States,Utah,39.386429,-111.656114,2,0
+North America,United States,Virginia,37.72906,-78.308905,8,0
+North America,United States,Washington,47.549917,-120.732564,2,0
+North America,United States,West Virginia,38.816951,-80.476695,5,0
+North America,Mexico,Mexico,21.571239,-101.52849,239,0
+Central America,Costa Rica,Costa Rica,9.882623,-83.809401,8,0
+Central America,El Salvador,El Salvador,13.81266,-88.805081,43,11078
+Central America,Guatemala,Guatemala,15.863847,-90.1384,261,915
+Central America,Honduras,Honduras,14.729238,-86.816143,2,0
+Central America,Nicaragua,Nicaragua,12.702284,-85.025605,139,0
+Central America,Panama,Panama,8.854519,-80.036973,220,0
+Latin Caribbean,Cuba,Cuba,21.849602,-78.865324,1,0
+Latin Caribbean,Dominican Republic,Dominican Republic,19.050322,-70.289877,56,1249
+Latin Caribbean,French Guiana,French Guiana,3.94052,-53.109442,411,4090
+Latin Caribbean,Guadeloupe,Guadeloupe,16.266547,-61.527425,239,1335
+Latin Caribbean,Haiti,Haiti,19.010991,-72.2746,5,1777
+Latin Caribbean,Martinique,Martinique,14.611751,-60.976075,12,17990
+Latin Caribbean,Puerto Rico,Puerto Rico,18.245688,-66.460461,550,0
+Latin Caribbean,Saint Martin,Saint Martin,18.08321,-63.05246,43,175
+Andean,Bolivia,Bolivia,-16.149928,-64.425778,12,0
+Andean,Colombia,Colombia,4.277874,-73.275072,3292,65338
+Andean,Ecuador,Ecuador,-1.567295,-78.433278,92,140
+Andean,Venezuela,Venezuela,7.648937,-65.54484,352,31224
+South Cone,Brazil,Brazil,-10.933223,-52.066886,1034,70611
+South Cone,Paraguay,Paraguay,-23.618674,-57.853605,7,0
+Non Latin Caribbean,Aruba,Aruba,12.497309,-69.965889,17,0
+Non Latin Caribbean,Barbados,Barbados,13.169924,-59.560332,7,316
+Non Latin Caribbean,Bonaire,Bonaire,12.184475,-68.269861,3,0
+Non Latin Caribbean,Curacao,Curacao,12.179887,-68.9891,73,0
+Non Latin Caribbean,Dominica,Dominica,15.416963,-61.343681,5,37
+Non Latin Caribbean,Guyana,Guyana,4.414402,-58.848203,6,0
+Non Latin Caribbean,Jamaica,Jamaica,18.209535,-77.31238,1,0
+Non Latin Caribbean,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,13.240749,-61.191682,1,0
+Non Latin Caribbean,Sint Maarten,Sint Maarten,18.044409,-63.057137,7,0
+Non Latin Caribbean,Suriname,Suriname,3.982513,-55.808066,527,3490
+Non Latin Caribbean,Trinidad and Tobago,Trinidad and Tobago,10.4428,-61.236649,16,0
+Non Latin Caribbean,United States Virgin Island,United States Virgin Island,17.732643,-64.759462,14,68
