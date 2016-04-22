@@ -1,0 +1,78 @@
+html,body,div,ul,li,svg{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+/*------------Global-------------*/
+html,body{
+	height: 100%;
+	position: relative;
+	background: white;
+}
+
+.container{
+    height:100%;
+}
+.container .section{
+	width:100%;
+}
+.container .canvas{
+	position: relative;
+	width:100%;
+	background:white;
+
+}
+
+.container .controls{
+	margin-bottom:20px;
+}
+
+/*------------font-------------*/
+body{
+	font-size: 10px;
+}
+h1{ font-size:2em;}
+h2{ font-size:1.3em;}
+p{
+	font-family:"Droid Serif", serif;
+}
+
+/*------------svg--------------*/
+.axis{
+    fill:none;
+    stroke:rgb(80,80,80);
+    stroke-width:1px;
+    stroke-dasharray:3px 3px;
+}
+
+path {
+	stroke: black;
+	stroke-width: 1px;
+	stroke-opacity: 1;
+	fill: none;
+}
+
+
+/*-----------tooltip-----------*/
+div.tooltip {
+	position: absolute;
+	text-align: center;
+	font-weight: bold;
+	width: 200px;
+	height: 18px;
+	padding: 2px;
+	font: 12px sans-serif;
+	background:rgb(255,255,255);
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+#plot {
+	height: 625px;
+}
+path text{
+	color: black;
+
+}
