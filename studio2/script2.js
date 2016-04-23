@@ -1,6 +1,6 @@
 //var margin = {t:100,r:50,b:100,l:50},
-//    width = document.getElementById('.container').clientWidth - margin.l - margin.r,
-//    height = document.getElementById('.container').clientHeight - margin.t - margin.b;
+//    width = document.getElementById('plot').clientWidth - margin.l - margin.r,
+//    height = document.getElementById('plot').clientHeight - margin.t - margin.b;
 //
 //var svg = d3.select('#plot')
 //    .append('svg')
@@ -10,7 +10,7 @@
 //    .attr('transform','translate('+margin.l+','+margin.t+')');
 
 var width = 960, 
-    height = 560;
+    height = 470;
 
 var svg = d3.select( "#plot" )
   .append( "svg" )
@@ -27,14 +27,15 @@ var sliderLabel = d3.select("#slider")
     .attr("y","0")
     .text("2016");
 
-var tooltip = d3.select("body").append("div")	
+var tooltip1 = d3.select("body")
+    .append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
 
 var scaleX = d3.time.scale().range([0,width]).domain([new Date(1,1, 1947), new Date(1,1,2016)]);
 
 var scaleCirc = d3.scale.linear().domain([0,65500]).range([0,30]);
-var scaleCirc2 = d3.scale.linear().domain([0,3300]).range([2,15]);
+var scaleCirc2 = d3.scale.linear().domain([0,3300]).range([2,20]);
 
 queue()
     .defer(d3.csv, 'data/infected_24march2016.csv', parseInfected)
@@ -50,28 +51,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 //    console.log(zikaTweets);
 //    console.log(zikaTweetsHr);
 
-
-    // Parse timestamp in zikaTweets
-    zikaTweets.forEach(function(d){
-        var parseYear = new Date(d.timestamp*1000);
-        d.year = parseYear.getFullYear();
-
-    });
-    
-        //timeline   
-//svg.selectAll('zikaTimeline')
-//            .data(zikaTime)
-//            .enter()
-//            .append('circle')
-//            .attr("class","zikaTime2")
-//            .attr('cx', function(d){return scaleX(new Date(1,1,d.year))}) 
-//            .attr('cy', function(d,i){return i*6})
-//            .attr('r',  4)
-//            .style('fill', 'rgba(155,55,55,.3)');
-//    
-
-    
-//    var baseMap = svg.append( "g" );
+//map
     var projection = d3.geo.equirectangular()
                                 .scale(150)
                                 .translate([width/2, height/2])
@@ -87,6 +67,90 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
             .attr("stroke", "#ADACAC")
             .attr("d", geoPath); 
        
+
+
+//tweets
+     svg.selectAll('tweets')
+            .data(zikaTweets)
+            .enter()
+            .append('circle')
+            .attr("class","zikaTweets")
+            .attr('cx', function(d){ return projection([d.x, d.y])[0]; })
+            .attr('cy', function(d){ return projection([d.x, d.y])[1]; })
+            .attr('r', 3)
+            .style('fill', 'rgba(83,121,153,.5)');
+
+//suspected    
+//          svg.selectAll('infections')
+//             .data(infected)
+//             .enter()
+//             .append('circle')
+//             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
+//             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
+////             .attr('r', function(d) { return scaleCirc(d.suspected); })
+//             .style("stroke", 'rgba(255,255,255,1)')
+//             .style('stroke-width', .1)
+//             .style('fill', 'rgba(5,255,55,.5)');
+
+//confirmed infections    
+      svg.selectAll('infections')
+             .data(infected)
+             .enter()
+             .append('circle')
+             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
+             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
+             .attr('r', function(d) { return scaleCirc2(d.confirmed); })
+             .style("stroke", 'rgba(255,255,255,1)')
+             .style('stroke-width', .3)
+             .style('fill', 'rgba(175,55,55,.6)')
+             .on("mouseover", function(d) {
+             tooltip1.transition()
+                 .duration(100)
+                 .style("opacity", .9);
+//             tooltip1.html(d.state + "<br>"  + "Infected " + d.confirmed + "<br>" + "Suspected " +d.suspected)
+             tooltip1.html(d.state + "<br>"  + "# of Infected " + d.confirmed)    
+                 .style("left", (d3.event.pageX +14) + "px")
+                 .style("top", (d3.event.pageY -14) + "px");
+             })
+         .on("mouseout", function(d) {
+             tooltip1.transition()
+                 .duration(1000)
+                 .style("opacity", 0);
+                })  
+      
+}
+
+
+
+//   var scales = {};
+//    //scales.x = d3.scale.linear().domain([xMin,xMax]).range([0,w/2]),
+//    scales.x = d3.scale.linear().domain([2004 ,2016]).range([0,w])
+//    scales.y = d3.scale.linear().domain([0,yMax]).range([h,0]);
+//    var axisX = d3.svg.axis()
+//        .orient('bottom')
+//        .scale(scales.x)
+//        .tickSize(-h,0)
+//        .tickFormat(function(d) {
+//            return d;
+//        });
+//    var axisY = d3.svg.axis()
+//        .orient('left')
+//        .scale(scales.y)
+//        .tickSize(-w,0);
+
+//linear timeline
+//svg.selectAll('zikaTimeline')
+//            .data(zikaTime)
+//            .enter()
+//            .append('circle')
+//            .attr("class","zikaTime2")
+//            .attr('cx', function(d){return scaleX(new Date(1,1,d.year))}) 
+//            .attr('cy', function(d,i){return i*6})
+//            .attr('r',  4)
+//            .style('fill', 'rgba(155,55,55,.3)');
+//    
+
+//global timeline
 //    svg.selectAll('timeline')
 //            .data(zikaTime)
 //            .enter()
@@ -100,61 +164,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 //            .style('fill', 'rgba(155,55,55,.7)');
 
 
-     svg.selectAll('tweets')
-            .data(zikaTweets)
-            .enter()
-            .append('circle')
-            .attr("class","zikaTweets")
-            .attr('cx', function(d){ return projection([d.x, d.y])[0]; })
-            .attr('cy', function(d){ return projection([d.x, d.y])[1]; })
-            .attr('r', 3)
-//            .style("stroke", 'rgba(255,255,255,1)')
-//            .style('stroke-width', .1)
-            .style('fill', 'rgba(83,121,153,.5)');
     
-//          svg.selectAll('infections')
-//             .data(infected)
-//             .enter()
-//             .append('circle')
-//             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-//             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-////             .attr('r', function(d) { return scaleCirc(d.suspected); })
-//             .style("stroke", 'rgba(255,255,255,1)')
-//             .style('stroke-width', .1)
-//             .style('fill', 'rgba(5,255,55,.5)');
-       
-      svg.selectAll('infections')
-             .data(infected)
-             .enter()
-             .append('circle')
-             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-//             .attr('r', 5)
-             .attr('r', function(d) { return scaleCirc2(d.confirmed); })
-             .style("stroke", 'rgba(255,255,255,1)')
-             .style('stroke-width', .3)
-             .style('fill', 'rgba(175,55,55,.6)')
-             .on("mouseover", function(d) {
-             tooltip.transition()
-                 .duration(0)
-                 .style("opacity", .9);
-             tooltip.html(d.state + "<br/>"  + d.confirmed)
-                 .style("left", (d3.event.pageX) + "px")
-                 .style("top", (d3.event.pageY - 28) + "px");
-             })
-         .on("mouseout", function(d) {
-             tooltip.transition()
-                 .duration(500)
-                 .style("opacity", 0);
-                })
-      
-      
-}
-    
-    
-
-
-
 
 function parseInfected(d){
     return {

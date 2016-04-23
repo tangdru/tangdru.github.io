@@ -64,32 +64,6 @@ function dataLoaded(err,rows){
 
 function draw(data, scaleX, scaleY){
 
-    //Draw line
-    //var line = d3.svg.line()
-    //    .x(function(d){ return scaleX(d.year);})
-    //    .y(function(d){ return scaleY(d.containers);})
-    //    .interpolate('cardinal');  //or 'basis'
-    //
-    //plot.append('path')
-    //    .attr('class','line')
-    //    .attr('d', line(data));
-    //
-    ////Draw area
-    ////var area = d3.svg.area()
-    ////    .x(function(d){ return scales.x(d.year);})
-    ////    .y(function(d){ return scales.y(d.value)-100;})
-    ////    .y0(function(d){ return scales.y(d.value)+100;})
-    ////    //.y0(height)
-    ////    .interpolate('cardinal');
-    //
-    //plot.append('path')   //this method is how it should be done because the area object contains the data
-    //    .datum(data)        //we take whole array (data) and join it to a single DOM element
-    //    //.attr('class','area')
-    //    .attr('d', function(d,i){
-    //        console.log(d);
-    //        //return area(d);
-    //    });   //d is data bound to the path (the whole array)
-
     console.log(data.length);
     
     //Draw dots
