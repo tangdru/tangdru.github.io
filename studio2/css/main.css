@@ -29,6 +29,7 @@ body2 {
   color: rgba(0,0,0,.5);
   margin: .2em;
   font-size: 8pt;
+  margin-left: 10pt;    
 }
 
 h1,
@@ -40,6 +41,7 @@ strong {
   margin-top: .5em;
   margin-bottom: 0em;
   font-size: 30pt;
+    margin-left: 10pt; 
 }
 
 a {
@@ -81,6 +83,7 @@ li {
   color: hsla(0, 10%, 30%, 1.0);
   font-size: 12pt;
   margin-bottom: 0.3em;
+    margin-left: 10pt; 
 }
 
 b {
