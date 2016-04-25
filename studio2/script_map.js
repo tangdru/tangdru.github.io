@@ -1,18 +1,9 @@
-//var margin = {t:100,r:50,b:100,l:50},
-//    width = document.getElementById('plot').clientWidth - margin.l - margin.r,
-//    height = document.getElementById('plot').clientHeight - margin.t - margin.b;
-//
-//var svg = d3.select('#plot')
-//    .append('svg')
-//    .attr('width', width + margin.l + margin.r)
-//    .attr('height', height + margin.t + margin.b)
-//    .append('g')
-//    .attr('transform','translate('+margin.l+','+margin.t+')');
+var margin = {top: 40, right: 20, bottom: 64, left:20},
+    width = 980 - margin.left - margin.right,
+    height = 470 - margin.top - margin.bottom;
 
-var width = 200, 
-    height = 300;
 
-var svg = d3.select( "#plot" )
+var chart1 = d3.select( "#plot1" )
   .append( "svg" )
   .attr( "width", width )
   .attr( "height", height );
@@ -58,12 +49,12 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 
 //map
     var projection = d3.geo.equirectangular()
-                                .scale(150)
+                                .scale(120)
                                 .translate([width/2, height/2])
                                 .precision(.1);
 
     var geoPath = d3.geo.path().projection(projection);
-        svg.append('g')
+        chart1.append('g')
             .selectAll("path")
             .data(mapData.features)
             .enter()
@@ -75,7 +66,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 
 
 //tweets
-     svg.selectAll('tweets')
+     chart1.selectAll('tweets')
             .data(zikaTweets)
             .enter()
             .append('circle')
@@ -98,7 +89,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 //             .style('fill', 'rgba(5,255,55,.5)');
 
 //confirmed infections    
-      svg.selectAll('infections')
+      chart1.selectAll('infections')
              .data(infected)
              .enter()
              .append('circle')

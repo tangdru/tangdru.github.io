@@ -188,3 +188,17 @@ img.illustration {
 .x.axis path {
   display: none;
 }
+
+
+/*plots*/
+.map {
+    position: relative;
+    left: 0%;
+    top: 10px;
+}
+
+.chart {
+    position: absolute;
+    left: 0%;
+    top: 200px;
+}

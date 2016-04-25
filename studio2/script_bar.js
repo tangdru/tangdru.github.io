@@ -1,14 +1,15 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
+var margin = {top: 20, right: 20, bottom: 50, left: 40},
+    width = 940 - margin.left - margin.right,
     height = 470 - margin.top - margin.bottom;
+//
+//var width = 600,
+//    height = 400;
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([-12, width], .1);
 
 var y = d3.scale.linear()
     .rangeRound([height, 0]);
-
-var scaleBar = d3.scale.linear().domain([0,100]).range([0,400]);
 
 var color = d3.scale.ordinal()
     .range(["#537999", "#AF3737" ,"D6ABAB" ]);
@@ -22,8 +23,13 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(d3.format(".2s"));
 
+var tooltip1 = d3.select("body")
+    .append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
 
-var svg = d3.select("#plot2")
+
+var chart2 = d3.select("#plot2")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -47,19 +53,20 @@ d3.csv("data/data2.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
 
-svg.append("g")
+chart2.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis)
   .selectAll("text")
     .attr("y", 0)
     .attr("x", 10)
-    .attr("dy", ".35em")
-    .attr("transform", "rotate(60)")
+    .attr("dy", ".3em")
+    .attr("transform", "rotate(90)")
+//    .attr("transform", function(d) { return "translate(2)"; })
     .style("text-anchor", "start");
 
 
-  svg.append("g")
+chart2.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
@@ -69,7 +76,7 @@ svg.append("g")
       .style("text-anchor", "end")
       .text("Population");
 
-  var state = svg.selectAll(".state")
+  var state = chart2.selectAll(".state")
       .data(data)
     .enter().append("g")
       .attr("class", "g")
@@ -81,10 +88,23 @@ svg.append("g")
       .attr("width", 10)
       .attr("y", function(d) { return y(d.y1); })
       .attr("height", function(d) { return y(d.y0) - y(d.y1); })
-      .style("fill", function(d) { return color(d.name); });
+      .style("fill", function(d) { return color(d.name); })
+      .on("mouseover", function(d) {
+             tooltip1.transition()
+                 .duration(100)
+                 .style("opacity", .9);
+             tooltip1.html(d.State + "<br>"  + "# of Suspected cases " + d.y1)    
+                 .style("left", (d3.event.pageX +14) + "px")
+                 .style("top", (d3.event.pageY -14) + "px");
+             })
+         .on("mouseout", function(d) {
+             tooltip1.transition()
+                 .duration(1000)
+                 .style("opacity", 0);
+                })  ;
 
     //legend
-  var legend = svg.selectAll(".legend")
+  var legend = chart2.selectAll(".legend")
       .data(color.domain().slice().reverse())
     .enter().append("g")
       .attr("class", "legend")
