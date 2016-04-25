@@ -173,7 +173,7 @@ img.illustration {
 
 /*axes*/
 
-/*
+
 .axis path,
 .axis line {
   fill: none;
@@ -187,4 +187,4 @@ img.illustration {
 
 .x.axis path {
   display: none;
-}*/
+}

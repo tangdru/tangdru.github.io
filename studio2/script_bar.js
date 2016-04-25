@@ -1,17 +1,17 @@
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 470 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+    .rangeRoundBands([-12, width], .1);
 
 var y = d3.scale.linear()
     .rangeRound([height, 0]);
 
-var scaleBar = d3.scale.linear().domain([0,71500]).range([0,30]);
+var scaleBar = d3.scale.linear().domain([0,100]).range([0,400]);
 
 var color = d3.scale.ordinal()
-    .range(["#537999", "#AF3737" ,"C69FCC" ]);
+    .range(["#537999", "#AF3737" ,"D6ABAB" ]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -47,10 +47,17 @@ d3.csv("data/data2.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+  .selectAll("text")
+    .attr("y", 0)
+    .attr("x", 10)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(60)")
+    .style("text-anchor", "start");
+
 
   svg.append("g")
       .attr("class", "y axis")
@@ -58,7 +65,7 @@ d3.csv("data/data2.csv", function(error, data) {
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
-      .attr("dy", ".71em")
+      .attr("dy", ".7em")
       .style("text-anchor", "end")
       .text("Population");
 
@@ -71,11 +78,12 @@ d3.csv("data/data2.csv", function(error, data) {
   state.selectAll("rect")
       .data(function(d) { return d.ages; })
     .enter().append("rect")
-      .attr("width", x.rangeBand())
+      .attr("width", 10)
       .attr("y", function(d) { return y(d.y1); })
       .attr("height", function(d) { return y(d.y0) - y(d.y1); })
       .style("fill", function(d) { return color(d.name); });
 
+    //legend
   var legend = svg.selectAll(".legend")
       .data(color.domain().slice().reverse())
     .enter().append("g")

@@ -9,8 +9,8 @@
 //    .append('g')
 //    .attr('transform','translate('+margin.l+','+margin.t+')');
 
-var width = 960, 
-    height = 470;
+var width = 200, 
+    height = 300;
 
 var svg = d3.select( "#plot" )
   .append( "svg" )
@@ -112,11 +112,9 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-//             tooltip1.html(d.state + "<br>"  + "Infected " + d.confirmed + "<br>" + "Suspected " +d.suspected)
              tooltip1.html(d.state + "<br>"  + "# of Infected " + d.confirmed)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
-          console.log(mouseove);
              })
          .on("mouseout", function(d) {
              tooltip1.transition()
