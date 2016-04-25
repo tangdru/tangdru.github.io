@@ -1,6 +1,6 @@
-var margin = {top: 40, right: 20, bottom: 64, left:20},
-    width = 980 - margin.left - margin.right,
-    height = 470 - margin.top - margin.bottom;
+var margin = {top: 100, right: 0, bottom: 50, left:20},
+    width = 880 - margin.left - margin.right,
+    height = 480 - margin.top - margin.bottom;
 
 
 var chart1 = d3.select( "#plot1" )
@@ -49,7 +49,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 
 //map
     var projection = d3.geo.equirectangular()
-                                .scale(120)
+                                .scale(150)
                                 .translate([width/2, height/2])
                                 .precision(.1);
 
@@ -76,18 +76,6 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
             .attr('r', 3)
             .style('fill', 'rgba(83,121,153,.5)');
 
-//suspected    
-//          svg.selectAll('infections')
-//             .data(infected)
-//             .enter()
-//             .append('circle')
-//             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-//             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-////             .attr('r', function(d) { return scaleCirc(d.suspected); })
-//             .style("stroke", 'rgba(255,255,255,1)')
-//             .style('stroke-width', .1)
-//             .style('fill', 'rgba(5,255,55,.5)');
-
 //confirmed infections    
       chart1.selectAll('infections')
              .data(infected)
@@ -103,7 +91,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-             tooltip1.html(d.state + "<br>"  + "# of Infected " + d.confirmed)    
+             tooltip1.html(d.state + "<br>"  + "# of Infected cases " + d.confirmed)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
              })
@@ -114,49 +102,6 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
                 })  
       
 }
-
-
-
-//   var scales = {};
-//    //scales.x = d3.scale.linear().domain([xMin,xMax]).range([0,w/2]),
-//    scales.x = d3.scale.linear().domain([2004 ,2016]).range([0,w])
-//    scales.y = d3.scale.linear().domain([0,yMax]).range([h,0]);
-//    var axisX = d3.svg.axis()
-//        .orient('bottom')
-//        .scale(scales.x)
-//        .tickSize(-h,0)
-//        .tickFormat(function(d) {
-//            return d;
-//        });
-//    var axisY = d3.svg.axis()
-//        .orient('left')
-//        .scale(scales.y)
-//        .tickSize(-w,0);
-
-//linear timeline
-//svg.selectAll('zikaTimeline')
-//            .data(zikaTime)
-//            .enter()
-//            .append('circle')
-//            .attr("class","zikaTime2")
-//            .attr('cx', function(d){return scaleX(new Date(1,1,d.year))}) 
-//            .attr('cy', function(d,i){return i*6})
-//            .attr('r',  4)
-//            .style('fill', 'rgba(155,55,55,.3)');
-//    
-
-//global timeline
-//    svg.selectAll('timeline')
-//            .data(zikaTime)
-//            .enter()
-//            .append('circle')
-//            .attr("class","zikaTime")
-//            .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-//            .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-//            .attr('r', 3)
-////            .style("stroke", 'rgba(255,255,255,1)') 
-////            .style('stroke-width', .1)
-//            .style('fill', 'rgba(155,55,55,.7)');
 
 
     

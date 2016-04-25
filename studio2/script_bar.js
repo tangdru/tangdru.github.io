@@ -1,4 +1,4 @@
-var margin = {top: 20, right: 20, bottom: 50, left: 40},
+var margin = {top: 20, right: 20, bottom: 120, left: 40},
     width = 940 - margin.left - margin.right,
     height = 470 - margin.top - margin.bottom;
 //
@@ -93,7 +93,7 @@ chart2.append("g")
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-             tooltip1.html(d.State + "<br>"  + "# of Suspected cases " + d.y1)    
+             tooltip1.html(d.state + "<br>"  + "# of " + d.name + " cases " + d.y1)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
              })
@@ -111,14 +111,15 @@ chart2.append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width - 50)
+      .attr('y', 20)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
+      .attr("x", width - 56)
+      .attr("y", 28)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
