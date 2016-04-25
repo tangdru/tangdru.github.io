@@ -90,7 +90,7 @@ chart.append("g")
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-             tooltip1.html(d.State + "<br>"  + "# of Suspected cases " + d.y1)    
+             tooltip1.html(d.state + "<br>"  + "# of " + d.name  +" cases " + d.y1)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
              })
@@ -109,14 +109,14 @@ chart.append("g")
 
   legend.append("rect")
       .attr("x", width -100)
-        .attr("y", 140)
+        .attr("y", 150)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
       .attr("x", width - 104)
-      .attr("y", 148)
+      .attr("y", 158)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
