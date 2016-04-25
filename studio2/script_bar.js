@@ -11,7 +11,7 @@ var y = d3.scale.linear()
 var scaleBar = d3.scale.linear().domain([0,71500]).range([0,30]);
 
 var color = d3.scale.ordinal()
-    .range(["#AF3737", "CC9E36"]);
+    .range(["#537999", "#AF3737" ,"C69FCC" ]);
 
 var xAxis = d3.svg.axis()
     .scale(x)

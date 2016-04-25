@@ -1,77 +1,77 @@
-State,Infected,Suspected
-Biristh Columbia,2,0
-Alberta,1,0
-Quebec,1,0
-Alabama,2,0
-Arkansas,1,0
-California,29,0
-Colorado,2,0
-Connecticut,1,0
-Delaware,3,0
-District of Columbia,3,0
-Florida,83,0
-Georgia,11,0
-Hawaii,5,0
-Illinois,10,0
-Indiana,6,0
-Iowa,4,0
-Kansas,1,0
-Kentucky,3,0
-Louisiana,4,0
-Maine,1,0
-Maryland,7,0
-Massachusetts,7,0
-Michigan,2,0
-Minnesota,12,0
-Mississippi,3,0
-Missouri,3,0
-Montana,1,0
-Nebraska,2,0
-Nevada,2,0
-New Hampshire,2,0
-New Jersey,8,0
-New York,54,0
-North Carolina,9,0
-Ohio,9,0
-Oklahoma,3,0
-Oregon,6,0
-Pennsylvania,12,0
-Tennessee,2,0
-Texas,27,0
-Utah,2,0
-Virginia,8,0
-Washington,2,0
-West Virginia,5,0
-Mexico,239,0
-Costa Rica,8,0
-El Salvador,43,11078
-Guatemala,261,915
-Honduras,2,0
-Nicaragua,139,0
-Panama,220,0
-Cuba,1,0
-Dominican Republic,56,1249
-French Guiana,411,4090
-Guadeloupe,239,1335
-Haiti,5,1777
-Martinique,12,17990
-Puerto Rico,550,0
-Saint Martin,43,175
-Bolivia,12,0
-Colombia,3292,65338
-Ecuador,92,140
-Venezuela,352,31224
-Brazil,1034,70611
-Paraguay,7,0
-Aruba,17,0
-Barbados,7,316
-Bonaire,3,0
-Curacao,73,0
-Dominica,5,37
-Guyana,6,0
-Jamaica,1,0
-Saint Vincent and the Grenadines,1,0
-Sint Maarten,7,0
-Suriname,527,3490
-Trinidad and Tobago,16,0
-United States Virgin Island,14,68
+State,Twitter,Infected,Suspected
+Biristh Columbia,,2,0
+Alberta,,1,0
+Quebec,,1,0
+Alabama,,2,0
+Arkansas,,1,0
+California,,29,0
+Colorado,,2,0
+Connecticut,,1,0
+Delaware,,3,0
+District of Columbia,,3,0
+Florida,,83,0
+Georgia,,11,0
+Hawaii,,5,0
+Illinois,,10,0
+Indiana,,6,0
+Iowa,,4,0
+Kansas,,1,0
+Kentucky,,3,0
+Louisiana,,4,0
+Maine,,1,0
+Maryland,,7,0
+Massachusetts,,7,0
+Michigan,,2,0
+Minnesota,,12,0
+Mississippi,,3,0
+Missouri,,3,0
+Montana,,1,0
+Nebraska,,2,0
+Nevada,,2,0
+New Hampshire,,2,0
+New Jersey,,8,0
+New York,,54,0
+North Carolina,,9,0
+Ohio,,9,0
+Oklahoma,,3,0
+Oregon,,6,0
+Pennsylvania,,12,0
+Tennessee,,2,0
+Texas,,27,0
+Utah,,2,0
+Virginia,,8,0
+Washington,,2,0
+West Virginia,,5,0
+Mexico,,239,0
+Costa Rica,,8,0
+El Salvador,,43,11078
+Guatemala,,261,915
+Honduras,,2,0
+Nicaragua,,139,0
+Panama,,220,0
+Cuba,,1,0
+Dominican Republic,,56,1249
+French Guiana,,411,4090
+Guadeloupe,,239,1335
+Haiti,,5,1777
+Martinique,,12,17990
+Puerto Rico,,550,0
+Saint Martin,,43,175
+Bolivia,,12,0
+Colombia,,3292,65338
+Ecuador,,92,140
+Venezuela,,352,31224
+Brazil,,1034,70611
+Paraguay,,7,0
+Aruba,,17,0
+Barbados,,7,316
+Bonaire,,3,0
+Curacao,,73,0
+Dominica,,5,37
+Guyana,,6,0
+Jamaica,,1,0
+Saint Vincent and the Grenadines,,1,0
+Sint Maarten,,7,0
+Suriname,,527,3490
+Trinidad and Tobago,,16,0
+United States Virgin Island,,14,68
