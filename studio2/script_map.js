@@ -17,15 +17,20 @@ var svg = d3.select( "#plot" )
   .attr( "width", width )
   .attr( "height", height );
 
+//var svg2 = d3.select( "#plot2" )
+//  .append( "svg" )
+//  .attr( "width", width )
+//  .attr( "height", height );
+//
 
-var slider = d3.slider().axis(true).min(1947).max(2016);
-var sliderLabel = d3.select("#slider")
-    .append("div")
-    .attr("class","sliderLabel")
-    .append("text")
-    .attr("x","0")
-    .attr("y","0")
-    .text("2016");
+//var slider = d3.slider().axis(true).min(1947).max(2016);
+//var sliderLabel = d3.select("#slider")
+//    .append("div")
+//    .attr("class","sliderLabel")
+//    .append("text")
+//    .attr("x","0")
+//    .attr("y","0")
+//    .text("2016");
 
 var tooltip1 = d3.select("body")
     .append("div")	
@@ -111,6 +116,7 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
              tooltip1.html(d.state + "<br>"  + "# of Infected " + d.confirmed)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
+          console.log(mouseove);
              })
          .on("mouseout", function(d) {
              tooltip1.transition()
@@ -170,7 +176,7 @@ function parseInfected(d){
     return {
         region: d.Region,
         country: d.Country,
-        state: d.State,
+        state: d.Location,
         lat: +d.lat,
         lng: +d.lng,
         confirmed: +d.confirmed,

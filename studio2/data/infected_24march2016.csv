@@ -1,4 +1,4 @@
-Region,Country,State,lat,lng,confirmed,suspected
+Region,Country,Location,lat,lng,confirmed,suspected
 North America,Canada,Biristh Columbia,51.410914,-120.984426,2,0
 North America,Canada,Alberta,46.24928164,-63.13132512,1,0
 North America,Canada,Quebec,46.83996909,-71.24561019,1,0
