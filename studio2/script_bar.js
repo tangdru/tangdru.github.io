@@ -1,9 +1,6 @@
-var margin = {top: 20, right: 20, bottom: 100, left: 40},
+var margin = {top: 0, right: 20, bottom: 120, left: 40},
     width = 800 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-//
-//var width = 600,
-//    height = 400;
+    height = 400 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([-12, width], .1);
@@ -29,7 +26,7 @@ var tooltip1 = d3.select("body")
     .style("opacity", 0);
 
 
-var chart2 = d3.select("#plot2")
+var chart = d3.select("#plot2")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -53,20 +50,20 @@ d3.csv("data/data3.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
 
-chart2.append("g")
+chart.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis)
   .selectAll("text")
     .attr("y", 0)
-    .attr("x", 10)
+    .attr("x", 12)
     .attr("dy", ".3em")
     .attr("transform", "rotate(90)")
 //    .attr("transform", function(d) { return "translate(2)"; })
     .style("text-anchor", "start");
 
 
-chart2.append("g")
+chart.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
@@ -76,7 +73,7 @@ chart2.append("g")
       .style("text-anchor", "end")
       .text("Population");
 
-  var state = chart2.selectAll(".state")
+  var state = chart.selectAll(".state")
       .data(data)
     .enter().append("g")
       .attr("class", "g")
@@ -93,7 +90,7 @@ chart2.append("g")
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-             tooltip1.html(d.state + "<br>"  + "# of " + d.name + " cases " + d.y1)    
+             tooltip1.html(d.State + "<br>"  + "# of Suspected cases " + d.y1)    
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
              })
@@ -104,22 +101,22 @@ chart2.append("g")
                 })  ;
 
     //legend
-  var legend = chart2.selectAll(".legend")
+  var legend = chart.selectAll(".legend")
       .data(color.domain().slice().reverse())
     .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", width - 50)
-      .attr('y', 20)
+      .attr("x", width -100)
+        .attr("y", 140)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", width - 56)
-      .attr("y", 28)
+      .attr("x", width - 104)
+      .attr("y", 148)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
