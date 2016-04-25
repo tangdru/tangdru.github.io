@@ -1,6 +1,6 @@
-var margin = {top: 20, right: 20, bottom: 120, left: 40},
-    width = 940 - margin.left - margin.right,
-    height = 470 - margin.top - margin.bottom;
+var margin = {top: 20, right: 20, bottom: 100, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 //
 //var width = 600,
 //    height = 400;
@@ -36,7 +36,7 @@ var chart2 = d3.select("#plot2")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/data2.csv", function(error, data) {
+d3.csv("data/data3.csv", function(error, data) {
   if (error) throw error;
     console.log(data);
     
@@ -85,7 +85,7 @@ chart2.append("g")
   state.selectAll("rect")
       .data(function(d) { return d.ages; })
     .enter().append("rect")
-      .attr("width", 10)
+      .attr("width", 20)
       .attr("y", function(d) { return y(d.y1); })
       .attr("height", function(d) { return y(d.y0) - y(d.y1); })
       .style("fill", function(d) { return color(d.name); })

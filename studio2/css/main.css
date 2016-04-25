@@ -194,11 +194,21 @@ img.illustration {
 .map {
     position: relative;
     left: 0%;
-    top: 10px;
+    top: 14px;
+      margin: 1em;
 }
 
-.chart {
+.chart1 {
     position: absolute;
     left: 0%;
     top: 180px;
 }
+
+/*
+.chart2 {
+    position: absolute;
+    left: 20;
+    top: 180px;
+}
+*/
+

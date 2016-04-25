@@ -1,4 +1,4 @@
-var margin = {top: 100, right: 0, bottom: 50, left:20},
+var margin = {top: 100, right: 20, bottom: 50, left:20},
     width = 880 - margin.left - margin.right,
     height = 480 - margin.top - margin.bottom;
 
@@ -31,7 +31,8 @@ var tooltip1 = d3.select("body")
 var scaleX = d3.time.scale().range([0,width]).domain([new Date(1,1, 1947), new Date(1,1,2016)]);
 
 var scaleCirc = d3.scale.linear().domain([0,65500]).range([0,30]);
-var scaleCirc2 = d3.scale.linear().domain([0,3300]).range([2,20]);
+var scaleCirc2 = d3.scale.sqrt().domain([0,3300]).range([2,20]);
+
 
 queue()
     .defer(d3.csv, 'data/infected_24march2016.csv', parseInfected)
