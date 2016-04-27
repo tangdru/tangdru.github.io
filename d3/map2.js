@@ -121,6 +121,18 @@ var geoPath = d3.geo.path().projection(projection);
         .attr("fill", "#DEDDDD")
         .attr("stroke", "#ADACAC")
         .attr("d", geoPath); 
+    
+//    svg.selectAll('timeline')
+//        .data(data)
+//        .enter()
+//        .append('circle')
+//        .attr("class","dot")
+//        .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
+//        .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
+//        .attr("r",function(d){return scaleCirc(d.containers);})
+//        .style("stroke", 'rgba(255,255,255,1)') 
+//        .style('stroke-width', .5)
+//        .style('fill', 'rgba(83,121,153,.3)');    
        
     svg.selectAll('timeline')
         .data(data)
@@ -129,11 +141,17 @@ var geoPath = d3.geo.path().projection(projection);
         .attr("class","dot")
         .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
         .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-        .attr("r",function(d){return scaleCirc(d.containers);})
-//.attr("r",function(d) {if (d.year==2004) {return scaleCirc(d.containers);} else {return 0;}})
         .style("stroke", 'rgba(255,255,255,1)') 
         .style('stroke-width', .5)
-        .style('fill', 'rgba(83,121,153,.3)');
+        .style('fill', 'rgba(83,121,153,.2)')
+        .attr("r", 0)
+        .transition().duration(600)
+        .attr("r",function(d){return scaleCirc(d.containers);});
+
+//    svg.exit()
+//        .transition().duration(200)
+//        .attr("r",0)
+//        .remove();
     }
 
 //slider
@@ -263,8 +281,10 @@ function lineChart(data, scaleX, scaleY){
         .attr('cx', function(d){return scaleX(d.year);})
         .attr('cy',function(d){return scaleY(d.containers);})
         .attr("containerValue", function(d) { return d.containers; })
-        .attr("r",function(d){return scaleCirc(d.containers/2);})
-        .style('fill', 'rgba(83,121,153,.3)');
+        .style('fill', 'rgba(83,121,153,.3)')
+        .attr("r", 0)
+        .transition().duration(600)
+        .attr("r",function(d){return scaleCirc(d.containers);});
     }
     
     
