@@ -12,8 +12,8 @@
 "use strict";
 
 //var m = {t:50,r:100,b:50,l:100},
-//    w = d3.select('.plot').node().clientWidth- m.l- m.r,
-//    h = d3.select('.plot').node().clientHeight - m.t - m.b;
+//    width = d3.select('.plot').node().clientWidth- m.l- m.r,
+//    height = d3.select('.plot').node().clientHeight - m.t - m.b;
 //
 //var svg = d3.select('#plot').append('svg')
 //    .attr('width',w+ m.l+ m.r)
@@ -66,93 +66,71 @@ function DataLoaded(err, data, mapData){
  
 var yMax = d3.max(data,function(d){return d.containers})
 //    console.log(yMax);
+var yMin = d3.min(data,function(d){return d.containers})
+
 var xMax = d3.max(data,function(d){return d.year})
 //    console.log(xMax);
 var xMin = d3.min(data,function(d){return d.year})
 //    console.log(xMin);
 
+var scaleCirc = d3.scale.sqrt().domain([yMin,yMax]).range([1.5,20]);
+
 //container axis    
 var scaleX = d3.scale.linear().domain([xMin ,xMax]).range([0,width])
 var scaleY = d3.scale.linear().domain([0,yMax]).range([height,0]);
 
-    var axisX = d3.svg.axis()
-        .orient('bottom')
-        .scale(scaleX)
-        .tickSize(-height,0)
-        .tickFormat(function(d) {
-            return d;
-        });
 
-    var axisY = d3.svg.axis()
-        .orient('left')
-        .scale(scaleY)
-        .tickSize(-width,0);
+var axisX = d3.svg.axis()
+    .orient('bottom')
+    .scale(scaleX)
+    .tickSize(-height,0)
+    .tickFormat(function(d) {return d;});
+
+var axisY = d3.svg.axis()
+    .orient('left')
+    .scale(scaleY)
+    .tickSize(-width,0);
 
 
-    var portNested = d3.nest()
-        .key(function(d){
-            return d.port})
-        .entries(data);
-        console.log(portNested);    
+var portNested = d3.nest()
+    .key(function(d){return d.port})
+    .entries(data);
+    console.log(portNested);    
     
 
-//map   
+map(data)
+function map(data){
 var projection = d3.geo.equirectangular()
-            .scale(130)
-            .translate([width/2, height/2])
-            .precision(.1);
+    .scale(130)
+    .translate([width/2, height/2])
+    .precision(.1);
 
- var geoPath = d3.geo.path().projection(projection);
-        svg.append('g')
-            .selectAll("path")
-            .data(mapData.features)
-            .enter()
-            .append("path")
-            .attr("fill", "#DEDDDD")
-            .attr("stroke", "#ADACAC")
-            .attr("d", geoPath); 
+var geoPath = d3.geo.path().projection(projection);
+    svg.append('g')
+        .selectAll("path")
+        .data(mapData.features)
+        .enter()
+        .append("path")
+        .attr("fill", "#DEDDDD")
+        .attr("stroke", "#ADACAC")
+        .attr("d", geoPath); 
        
     svg.selectAll('timeline')
-            .data(data)
-            .enter()
-            .append('circle')
-            .attr("class","ports")
-            .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-            .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-            .attr("r",function(d) {if (d.year==2004) {return d.containers/1000000;} else {return 0;}})
-            .style("stroke", 'rgba(255,255,255,1)') 
-            .style('stroke-width', .5)
-            .style('fill', 'rgba(83,121,153,.3)');
+        .data(data)
+        .enter()
+        .append('circle')
+        .attr("class","ports")
+        .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
+        .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
+        .attr("r",function(d){return scaleCirc(d.containers);})
+//.attr("r",function(d) {if (d.year==2004) {return scaleCirc(d.containers);} else {return 0;}})
+        .style("stroke", 'rgba(255,255,255,1)') 
+        .style('stroke-width', .5)
+        .style('fill', 'rgba(83,121,153,.3)');
+    }
 
     
-    // Slider function
-slider.on("slide",function(event,value){
-        var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
-        sliderLabel.text(intValue);
-        
-        // Hide the circles which the year is larger than the slide value
-        d3.selectAll(".ports").filter(function(d){
-            return d.year>intValue;
-        })
-        .transition()
-        .attr("r","0");
 
-        // Show circles which the year is smaller or equal
-        d3.selectAll(".ports")
-//        .transition()
-        .attr("r",function(d) {
-            if (d.year-2<intValue && d.year<=intValue) {
-                return d.containers/1000000; 
-            } else {
-                return 0;
-            }
-        });
-    });
-
-    d3.select("#slider")
-        .append("div")
-        .attr("class","sliderItem")
-        .call(slider);
     
     
 //draw axis 
@@ -164,10 +142,11 @@ slider.on("slide",function(event,value){
         .attr('class','axis y')
         .call(axisY);
 
-    draw(portNested, scaleX, scaleY);
-
+    
 //draw linechart    
-function draw(data, scaleX, scaleY){
+lineChart(portNested, scaleX, scaleY);
+
+function lineChart(data, scaleX, scaleY){
 
     //Draw LINE
     var line = d3.svg.line()
@@ -183,9 +162,7 @@ function draw(data, scaleX, scaleY){
         .attr('class','port');
 
     ports.append('path')
-        .datum(function(d){
-            return d.values;
-        })
+        .datum(function(d){return d.values;})
         .attr('d', line)
         .attr('stroke', 'black')
         .attr('fill', 'rgba(0,0,0,0)');
@@ -198,21 +175,17 @@ function draw(data, scaleX, scaleY){
         .data(data)
         .enter()    //create 50 empty placeholders
         .append("g")
-        .attr("class", function(d) { //console.log(i);
-            return d.key; })
+        .attr("class", function(d) {return d.key; })
         .selectAll('.dot')
         .data(function(d){ return d.values; })
         .enter()
         .append('circle')
         .attr('class', 'dot')
-        .attr('cx', function(d){
-            return scaleX(d.year);
-        })
-        .attr('cy',function(d){
-            return scaleY(d.containers);
-        })
+        .attr('cx', function(d){return scaleX(d.year);})
+        .attr('cy',function(d){return scaleY(d.containers);})
         .attr("containerValue", function(d) { return d.containers; })
-        .attr('r', 3);
+        .attr("r",function(d){return scaleCirc(d.containers);})
+        .style('fill', 'rgba(83,121,153,.3)');
     }
     
     
