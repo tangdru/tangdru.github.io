@@ -60,8 +60,12 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
             .attr("class","zikaTweets")
             .attr('cx', function(d){ return projection([d.x, d.y])[0]; })
             .attr('cy', function(d){ return projection([d.x, d.y])[1]; })
-            .attr('r', 3)
-            .style('fill', 'rgba(83,121,153,.5)');
+                 .style('fill', 'rgba(83,121,153,.5)')
+             .attr("r", 0)
+        .transition().duration(800)
+        .attr("r", 2)
+             .transition().duration(1000)
+             .attr("r", 1.5);
 
 
 
@@ -72,11 +76,13 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
              .append('circle')
              .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
              .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-             .attr('r', function(d) { return scaleCirc2(d.confirmed); })
              .style("stroke", 'rgba(255,255,255,1)')
              .style('stroke-width', .3)
              .style('fill', 'rgba(175,55,55,.6)')
-             .on("mouseover", function(d) {
+//             .attr("r", 1.5)
+//             .transition().duration(600)
+            .attr('r', function(d) { return scaleCirc2(d.confirmed); })
+            .on("mouseover", function(d) {
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
