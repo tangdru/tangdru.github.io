@@ -156,7 +156,7 @@ var svgPlot = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svgPlot.append("g")
+svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height / 2 + ")")
     .call(d3.svg.axis()
@@ -200,8 +200,9 @@ function brushed() {
   }
 
   handle.attr("cx", x(value));
-  d3.select("body")
-      .style("fill", d3.hsl(value, .8, .8));
+  d3.select("handle")
+      .style("fill", d3.hsl(value, .8, .8))
+        .attr('r', (value));
 }
     
     
@@ -262,7 +263,7 @@ function lineChart(data, scaleX, scaleY){
         .attr('cx', function(d){return scaleX(d.year);})
         .attr('cy',function(d){return scaleY(d.containers);})
         .attr("containerValue", function(d) { return d.containers; })
-        .attr("r",function(d){return scaleCirc(d.containers);})
+        .attr("r",function(d){return scaleCirc(d.containers/2);})
         .style('fill', 'rgba(83,121,153,.3)');
     }
     
