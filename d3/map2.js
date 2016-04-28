@@ -26,6 +26,7 @@ var svg3 = d3.select('#plot').append('svg')
     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
 
+
 // var svg3 = d3.select('#plot').append('svg')
 //     .attr('width', width + margin.l + margin.r)
 //     .attr('height', height + margin.t + margin.b)
@@ -173,12 +174,10 @@ function DataLoaded(err, data, mapData) {
         .attr("class", "handle")
         .attr("transform", "translate(0," + height / 2 + ")")
         .attr('r',10);
-        // .attr("x", 10)
-        // .attr("y", 10)
         // .attr("width", 20)
-        // .attr("height", 40);
+        // .attr("height", 20);
 
-    slider.call(brush.event);
+    // slider.call(brush.event);
 
 
     function brushed() {
