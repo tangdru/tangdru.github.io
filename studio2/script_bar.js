@@ -21,8 +21,8 @@ var yAxis = d3.svg.axis()
     .tickFormat(d3.format());
 
 var tooltip1 = d3.select("body")
-    .append("div")	
-    .attr("class", "tooltip")				
+    .append("div")
+    .attr("class", "tooltip")
     .style("opacity", 0);
 
 
@@ -36,7 +36,7 @@ var chart = d3.select("#plot2")
 d3.csv("data/data3.csv", function(error, data) {
   if (error) throw error;
     console.log(data);
-    
+
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));
 
   data.forEach(function(d) {
@@ -92,7 +92,7 @@ var state = chart.selectAll(".state")
              tooltip1.transition()
                  .duration(100)
                  .style("opacity", .9);
-             tooltip1.html(d.state + "<br>"  + "# of " + d.name  +" cases " + d.y1)    
+             tooltip1.html(d.state + "<br>"  + "# of " + d.name  +" cases " + d.y1)
                  .style("left", (d3.event.pageX +14) + "px")
                  .style("top", (d3.event.pageY -14) + "px");
              })

@@ -13,8 +13,8 @@ d3.customeHistogram = function(){
         scaleY = d3.scale.linear().range([chartH,0]).domain([0,maxY]),
         valueAccessor = function(d){ return d;}
 //        container = function(d){return d.container;};  //fix
-    
-    
+
+
     function exports(_selection){
         chartW = w - m.l - m.r,
         chartH = h - m.t - m.b;
@@ -23,14 +23,14 @@ d3.customeHistogram = function(){
         scaleY.range([chartH,0]).domain([0,maxY]);
 
         _selection.each(draw);
-        
+
     }
 
     function draw(d){
         console.log(d)
         var _d = layout(d)
         console.log(_d)
-        
+
         var line = d3.svg.line()
             .x(function(d){ return scaleX(d.x + d.dx/2)})
             .y(function(d){ return scaleY(d.y)})
@@ -93,14 +93,14 @@ d3.customeHistogram = function(){
         layout.value(_v);
         return this;
     }
-    
+
         exports.container = function(_c){
         if(!arguments.length) return container;
         container = _c;
         return this;
-        
+
     }
 
     return exports;
-    
+
 }

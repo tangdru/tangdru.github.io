@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Number of containers by top 50 ports</title>
-<!--        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>-->
-        <link rel="stylesheet" href="css/main.css"/>
-        <link rel="stylesheet" href="css/slider.css"/>
 
-        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <script src="http://d3js.org/topojson.v1.min.js"></script>
-        <script src="lib/queue/queue.min.js"></script>
-        <script src="js/d3.slider.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Number of containers by top 50 ports</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/d3.slider.js"></script>
+    <script src="lib/queue/queue.min.js"></script>
 
-    <body>
-        <h1>SEABORNE TRADE</h1>
-        <h2>2004-2015 Global container traffic for the 50 busiest seaports</h2>
-        <p>Sea-going container traffic is the life blood of global capatilism. Here, you can explore the top 50 shipping ports with regard to the number of containers (in 20' units) shipped per year</p>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/newslider.css" />
 
-        <div class="container">
-<!--
+</head>
 
-            <div class="map" id="map"  ></div>
-            <div class="slide" id="slider"></div>
--->
-            <div class="plot" id="plot"></div>
+<body>
+    <h1>SEABORNE TRADE</h1>
+    <h2>2004-2015 Global container traffic for the 50 busiest seaports</h2>
+    <p>Sea-going container traffic is the life blood of global capatilism. Here, you can explore the top 50 shipping ports with regard to the number of containers (in 20' units) shipped per year</p>
 
-        </div>
-        <script src="map2.js"></script>
+    <div class="container">
+        <div class="plot" id="plot"></div>
+        <div class="slide" id="slider"></div>
+        <div class="plot2" id="plot2"></div>
 
-<!--        <script src="map.js"></script>-->
-<!--        <script src="containersbyport.js"></script>-->
-<!--
-        <script src="modules/newhistogram.js"></script>
-        <script src="smallMultiples.js"></script>
--->
-<!--
+        <!-- <div id="slider3"></div> -->
+
+    </div>
+    <script src="js/newSlider.js"></script>
+    <script src="map3.js"></script>
+
+    <!--        <script src="map.js"></script>-->
+    <!--        <script src="containersbyport.js"></script>-->
+
+    <!-- <script src="modules/newhistogram.js"></script>
+        <script src="smallMultiples.js"></script> -->
+
+    <!--
         <script src="lib/crossfilter/crossfilter.js"></script>
         <script src="countryLines.js"></script>
 -->
-    </body>
+</body>
+
 </html>

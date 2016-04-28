@@ -9,7 +9,7 @@
 //    .append('g')
 //    .attr('transform','translate('+margin.l+','+margin.t+')');
 
-var width = 800, 
+var width = 800,
     height = 300;
 
 var svg = d3.select( "#plot" )
@@ -25,10 +25,10 @@ var sliderLabel = d3.select("#slider")
     .append("text")
     .attr("x","0")
     .attr("y","0")
-    .text("2004");
+    .text("");
 
-var tooltip = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
     .style("opacity", 0);
 
 
@@ -37,17 +37,17 @@ queue()
     .defer(d3.json, 'data/map.json')
     .await(DataLoaded)
 
-function DataLoaded(err, ports, mapData){
-    console.log(ports);
+function DataLoaded(err, data, mapData){
+    console.log(data);
 
-    // Parse timestamp 
+    // Parse timestamp
 //    ports.forEach(function(d){
 //        var parseYear = new Date(d.timestamp*1000);
 //        d.year = parseYear.getFullYear();
 //
 //    });
 
-    
+
     var projection = d3.geo.equirectangular()
             .scale(130)
             .translate([width/2, height/2])
@@ -61,30 +61,30 @@ function DataLoaded(err, ports, mapData){
             .append("path")
             .attr("fill", "#DEDDDD")
             .attr("stroke", "#ADACAC")
-            .attr("d", geoPath); 
-       
+            .attr("d", geoPath);
+
     svg.selectAll('timeline')
-            .data(ports)
+            .data(data)
             .enter()
             .append('circle')
             .attr("class","ports")
             .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
             .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
             .attr("r",function(d) {if (d.year==2004) {return d.containers/1000000;} else {return 0;}})
-    
-            .style("stroke", 'rgba(255,255,255,1)') 
+
+            .style("stroke", 'rgba(255,255,255,1)')
             .style('stroke-width', .5)
-    
+
 //            .style('fill', colorRange([   function(d)return d.region); ]))
             .style('fill', 'rgba(83,121,153,.3)');
 
-    
+
     // Slider function
 
     slider.on("slide",function(event,value){
         var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
         sliderLabel.text(intValue);
-        
+
         // Hide the circles which the year is larger than the slide value
         d3.selectAll(".ports").filter(function(d){
             return d.year>intValue;
@@ -97,7 +97,7 @@ function DataLoaded(err, ports, mapData){
 //        .transition()
         .attr("r",function(d) {
             if (d.year-2<intValue && d.year<=intValue) {
-                return d.containers/1000000; 
+                return d.containers/1000000;
             } else {
                 return 0;
             }
@@ -108,7 +108,7 @@ function DataLoaded(err, ports, mapData){
         .append("div")
         .attr("class","sliderItem")
         .call(slider);
-     
+
 }
 
 
@@ -123,4 +123,3 @@ function parsePorts(d){
         containers: +d.Container
     }
 }
-

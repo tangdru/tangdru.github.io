@@ -124,14 +124,14 @@ img.illustration {
 }
 
 .sliderItem {
-  width:800px;
-  margin-top:20px;
-  margin-bottom:40px;
+  width:1000px;
+  margin-top:10px;
+  margin-bottom:20px;
 }
-.sliderLabel{
+/*.sliderLabel{
   margin-top:20px;
 
-}
+}*/
 
 
-#map { position: absolute; visibility: visible; right:0px; top: 0px; z-index: 1; } 
+#map { position: absolute; visibility: visible; right:0px; top: 0px; z-index: 1; }
