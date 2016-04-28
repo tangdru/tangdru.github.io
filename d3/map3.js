@@ -26,12 +26,18 @@ var svg2 = d3.select('#plot2').append('svg')
 //     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
 
-//brush
+//slider
 var slider = d3.slider().axis(true).min(2004).max(2015);
 var sliderLabel = d3.select("#slider")
     .append("svg")
     .attr("x", "0")
     .attr("y", "0");
+
+//tooltip
+var tooltip1 = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 
 
@@ -128,16 +134,28 @@ function DataLoaded(err, data, mapData) {
             .style("stroke", 'rgba(255,255,255,1)')
             .style('stroke-width', .5)
             .style('fill', 'rgba(83,121,153,.2)')
-            // .attr("r", 3)
-            // .transition().duration(600)
+            // .transition().duration(200)
             .attr("r", function(d) {
                 if (d.year == 2004)
                     return scaleCirc(d.containers);
+            })
+            .on("mouseover", function(d) {
+                tooltip1.transition()
+                    .duration(100)
+                    .style("opacity", .9);
+                tooltip1.html(d.port + "<br>" + "# of containers " + d.containers)
+                    .style("left", (d3.event.pageX + 14) + "px")
+                    .style("top", (d3.event.pageY - 14) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip1.transition()
+                    .duration(1000)
+                    .style("opacity", 0);
             });
-        // nodes.exit()
-        //     .transition().duration(200)
-        //     .attr("r", 0)
-        //     .remove();
+        nodes.exit()
+            .transition().duration(200)
+            .attr("r", 0)
+            .remove();
     }
 
     slider.on("slide", function(event, value) {
@@ -148,7 +166,7 @@ function DataLoaded(err, data, mapData) {
         d3.selectAll(".dot").filter(function(d) {
                 return d.year > intValue;
             })
-            .transition().duration(100)
+            .transition().duration(200)
             .attr("r", "0");
 
         // Show circles which the year is smaller or equal
@@ -156,7 +174,7 @@ function DataLoaded(err, data, mapData) {
             .transition(100).duration(150)
             .attr("r", function(d) {
                 if (d.year == intValue) {
-                    return scaleCirc(2*d.containers);
+                    return scaleCirc(2 * d.containers);
                 } else {
                     return 0;
                 }
@@ -207,7 +225,14 @@ function DataLoaded(err, data, mapData) {
             })
             .attr('d', line)
             .attr('stroke', 'gray')
-            .attr('fill', 'rgba(0,0,0,0)');
+            .attr('fill', 'rgba(0,0,0,0)')
+            .on("mouseover", function(d) {
+                d3.select(this).style("stroke", "black").style('stroke-width', '1pt');
+            })
+
+        .on("mouseout", function(d) {
+            d3.select(this).style("stroke", "gray").style('stroke-width', '.5pt');
+        });
 
         var portG = svg2.selectAll('.portSize')
             .data(data)
@@ -229,14 +254,21 @@ function DataLoaded(err, data, mapData) {
             .attr('cy', function(d) {
                 return scaleY(d.containers);
             })
-            .style("stroke", 'rgba(255,255,255,1)')
-            .style('stroke-width', .5)
-            .style('fill', 'rgba(83,121,153,.2)');
+            .style('fill', 'rgba(83,121,153,.2)')
+            .on("mouseover", function(d) {
+                tooltip1.transition()
+                    .duration(100)
+                    .style("opacity", .9);
+                tooltip1.html(d.port + "<br>" + "# of containers " + d.containers)
+                    .style("left", (d3.event.pageX + 14) + "px")
+                    .style("top", (d3.event.pageY - 14) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip1.transition()
+                    .duration(1000)
+                    .style("opacity", 0)});
 
-        // .transition().duration(600)
-        // .attr("r", function(d) {
-        //     return scaleCirc(d.containers);
-        // });
+
 
 
         ports.append("text")
