@@ -173,8 +173,8 @@ function DataLoaded(err, data, mapData) {
             .transition(100).duration(150)
             .attr("r", function(d) {
                 if (d.year == intValue) {
-                    return scaleCirc(d.containers);
-                    // return 12;
+                    // return scaleCirc(d.containers);
+                    return 10;
                 } else {
                     return 3;
                 }
