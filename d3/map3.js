@@ -72,7 +72,7 @@ function DataLoaded(err, data, mapData) {
     })
 
 
-    var scaleCirc = d3.scale.sqrt().domain([yMin, yMax]).range([1.5, 20]);
+    var scaleCirc = d3.scale.sqrt().domain([yMin, yMax]).range([1.5, 30]);
 
     //container axis
     var scaleX = d3.scale.linear().domain([xMin, xMax]).range([0, width])
@@ -124,7 +124,7 @@ function DataLoaded(err, data, mapData) {
 
         var nodesEnter = nodes.enter()
             .append('circle')
-            .classed('dot', true)
+            .classed('dot1', true)
             .attr('cx', function(d) {
                 return projection([d.lng, d.lat])[0];
             })
@@ -163,13 +163,27 @@ function DataLoaded(err, data, mapData) {
         // sliderLabel.text(intValue);
 
 
-        d3.selectAll(".dot").filter(function(d) {
+        d3.selectAll(".dot1").filter(function(d) {
+                return d.year > intValue;
+            })
+            .transition().duration(200)
+            .attr("r", "0")
+        d3.selectAll(".dot1")
+            .transition(100).duration(150)
+            .attr("r", function(d) {
+                if (d.year == intValue) {
+                    return scaleCirc(d.containers);
+                    // return 10;
+                } else {
+                    return 0;
+                }
+            });
+        d3.selectAll(".dot2").filter(function(d) {
                 return d.year > intValue;
             })
             .transition().duration(200)
             .attr("r", "3");
-
-        d3.selectAll(".dot")
+        d3.selectAll(".dot2")
             .transition(100).duration(150)
             .attr("r", function(d) {
                 if (d.year == intValue) {
@@ -246,7 +260,7 @@ function DataLoaded(err, data, mapData) {
             })
             .enter()
             .append('circle')
-            .classed('dot', true)
+            .classed('dot2', true)
             .attr("r", 3)
             .attr('cx', function(d) {
                 return scaleX(d.year);
@@ -266,7 +280,8 @@ function DataLoaded(err, data, mapData) {
             .on("mouseout", function(d) {
                 tooltip1.transition()
                     .duration(1000)
-                    .style("opacity", 0)});
+                    .style("opacity", 0)
+            });
 
 
 
