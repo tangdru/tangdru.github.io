@@ -1,59 +1,41 @@
+var margin = {
+        t: 50,
+        r: 200,
+        b: 50,
+        l: 100
+    },
+    width = innerWidth - margin.l - margin.r,
+    height = innerHeight - margin.t - margin.b;
 
-//    width = document.getElementById('canvas').clientWidth - margin.l - margin.r,
-//    height = document.getElementById('canvas').clientHeight - margin.t - margin.b;
-//
-//var canvas = d3.select('.canvas')
-//    .append('svg')
-//    .attr('width', width + margin.l + margin.r)
-//    .attr('height', height + margin.t + margin.b)
-//    .append('g')
-//    .attr('transform','translate('+margin.l+','+margin.t+')');
+var svg1 = d3.select('#plot').append('svg')
+    .attr('width', width + margin.l + margin.r)
+    .attr('height', height + margin.t + margin.b)
+    .append('g').attr('class', 'lineGraph')
+    .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
-"use strict";
+var svg2 = d3.select('#plot').append('svg')
+    .attr('width', width + margin.l + margin.r)
+    .attr('height', height + margin.t + margin.b)
+    .append('g').attr('class', 'lineGraph')
+    .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
-//var m = {t:50,r:100,b:50,l:100},
-//    width = d3.select('.plot').node().clientWidth- m.l- m.r,
-//    height = d3.select('.plot').node().clientHeight - m.t - m.b;
-//
-//var svg = d3.select('#plot').append('svg')
-//    .attr('width',w+ m.l+ m.r)
-//    .attr('height',h+ m.t+ m.b)
-//    .append('g').attr('class','lineGraph')
-//    .attr('transform','translate('+ m.l+','+ m.t+')');
-var margin = {t:100,r:50,b:100,l:50}
-var width = 800, 
-    height = 300;
-
-var svg = d3.select( "#plot" )
-  .append( "svg" )
-  .attr( "width", width )
-  .attr( "height", height );
-
-var svg2 = d3.select( "#plot" )
-  .append( "svg" )
-  .attr( "width", width )
-  .attr( "height", height );
-
-var svgPlot = d3.select('#plot')
-    .append('svg')
-    .attr('width', width)
-    .attr('height', 20)
+var svg3 = d3.select('#plot').append('svg')
+    .attr('width', width + margin.l + margin.r)
+    .attr('height', height + margin.t + margin.b)
+    .append('g').attr('class', 'lineGraph')
+    .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
 
+// var svg3 = d3.select('#plot').append('svg')
+//     .attr('width', width + margin.l + margin.r)
+//     .attr('height', height + margin.t + margin.b)
+//     .append('g').attr('class', 'lineGraph')
+//     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
-//slider
-var slider = d3.slider().axis(true).min(2004).max(2015);
-var sliderLabel = d3.select("#slider")
-    .append("div")
-    .attr("class","sliderLabel")
-    .append("text")
-    .attr("x","0")
-    .attr("y","0")
-    .text("2004");
 
-var tooltip = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
+// var tooltip = d3.select("body").append("div")
+//     .attr("class", "tooltip")
+//     .style("opacity", 0);
 
 
 queue()
@@ -61,242 +43,252 @@ queue()
     .defer(d3.json, 'data/map.json')
     .await(DataLoaded)
 
-function DataLoaded(err, data, mapData){
+function DataLoaded(err, data, mapData) {
     console.log(data);
 
-// Parse timestamp 
-//    ports.forEach(function(d){
-//        var parseYear = new Date(d.timestamp*1000);
-//        d.year = parseYear.getFullYear();
-//
-//    });
- 
-var yMax = d3.max(data,function(d){return d.containers})
-//    console.log(yMax);
-var yMin = d3.min(data,function(d){return d.containers})
 
-var xMax = d3.max(data,function(d){return d.year})
-//    console.log(xMax);
-var xMin = d3.min(data,function(d){return d.year})
-//    console.log(xMin);
+    var yMax = d3.max(data, function(d) {
+        return d.containers
+    })
 
-var scaleCirc = d3.scale.sqrt().domain([yMin,yMax]).range([1.5,20]);
+    var yMin = d3.min(data, function(d) {
+        return d.containers
+    })
 
-//container axis    
-var scaleX = d3.scale.linear().domain([xMin ,xMax]).range([0,width])
-var scaleY = d3.scale.linear().domain([0,yMax]).range([height,0]);
+    var xMax = d3.max(data, function(d) {
+        return d.year
+    })
+
+    var xMin = d3.min(data, function(d) {
+        return d.year
+    })
 
 
-var axisX = d3.svg.axis()
-    .orient('bottom')
-    .scale(scaleX)
-    .tickSize(-height,0)
-    .tickFormat(function(d) {return d;});
+    var scaleCirc = d3.scale.sqrt().domain([yMin, yMax]).range([1.5, 20]);
 
-var axisY = d3.svg.axis()
-    .orient('left')
-    .scale(scaleY)
-    .tickSize(-width,0);
+    //container axis
+    var scaleX = d3.scale.linear().domain([xMin, xMax]).range([0, width])
+    var scaleY = d3.scale.linear().domain([0, yMax]).range([height, 0]);
 
 
-var portNested = d3.nest()
-    .key(function(d){return d.port})
-    .entries(data);
-    console.log(portNested);    
-    
+    var axisX = d3.svg.axis()
+        .orient('bottom')
+        .scale(scaleX)
+        .tickSize(-height, 0)
+        .tickFormat(function(d) {
+            return d;
+        });
 
-map(data)
-function map(data){
-var projection = d3.geo.equirectangular()
-    .scale(130)
-    .translate([width/2, height/2])
-    .precision(.1);
+    var axisY = d3.svg.axis()
+        .orient('left')
+        .scale(scaleY)
+        .tickSize(-width, 0);
 
-var geoPath = d3.geo.path().projection(projection);
-    svg.append('g')
-        .selectAll("path")
-        .data(mapData.features)
-        .enter()
-        .append("path")
-        .attr("fill", "#DEDDDD")
-        .attr("stroke", "#ADACAC")
-        .attr("d", geoPath); 
-    
-//    svg.selectAll('timeline')
-//        .data(data)
-//        .enter()
-//        .append('circle')
-//        .attr("class","dot")
-//        .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-//        .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-//        .attr("r",function(d){return scaleCirc(d.containers);})
-//        .style("stroke", 'rgba(255,255,255,1)') 
-//        .style('stroke-width', .5)
-//        .style('fill', 'rgba(83,121,153,.3)');    
-       
-    svg.selectAll('timeline')
-        .data(data)
-        .enter()
-        .append('circle')
-        .attr("class","dot")
-        .attr('cx', function(d){ return projection([d.lng, d.lat])[0]; })
-        .attr('cy', function(d){ return projection([d.lng, d.lat])[1]; })
-        .style("stroke", 'rgba(255,255,255,1)') 
-        .style('stroke-width', .5)
-        .style('fill', 'rgba(83,121,153,.2)')
-        .attr("r", 0)
-        .transition().duration(600)
-        .attr("r",function(d){return scaleCirc(d.containers);});
 
-//    svg.exit()
-//        .transition().duration(200)
-//        .attr("r",0)
-//        .remove();
+    var portNested = d3.nest()
+        .key(function(d) {
+            return d.port
+        })
+        .entries(data);
+    console.log(portNested);
+
+
+    map(data)
+
+    function map(data) {
+        var projection = d3.geo.equirectangular()
+            .scale(170)
+            .translate([width / 2, height / 2])
+            .precision(.1);
+
+        var geoPath = d3.geo.path().projection(projection);
+        svg1.append('g')
+            .selectAll("path")
+            .data(mapData.features)
+            .enter()
+            .append("path")
+            .attr("fill", "#DEDDDD")
+            .attr("stroke", "#ADACAC")
+            .attr("d", geoPath);
+
+        var nodes = svg1.selectAll('locations')
+            .data(data);
+
+        var nodesEnter = nodes.enter()
+            .append('circle')
+            .classed('dot', true)
+            .attr('cx', function(d) {
+                return projection([d.lng, d.lat])[0];
+            })
+            .attr('cy', function(d) {
+                return projection([d.lng, d.lat])[1];
+            })
+            .style("stroke", 'rgba(255,255,255,1)')
+            .style('stroke-width', .5)
+            .style('fill', 'rgba(83,121,153,.2)')
+            .attr("r", 3)
+            .transition().duration(600)
+            .attr("r", function(d) {
+                return scaleCirc(d.containers);
+            });
+        nodes.exit()
+            .transition().duration(200)
+            .attr("r", 0)
+            .remove();
     }
 
-//slider
 
-slider(data)
-function slider(data){
+
+    //brush
+    var x = d3.time.scale()
+        .domain([new Date(2004, 1, 1), new Date(2015, 12, 31)])
+        .range([0, width]);
+
+    var brush = d3.svg.brush()
+        .x(x)
+        .extent([0, 0])
+        .on("brush", brushed);
+
     var x = d3.scale.linear()
-    .domain([0, 180])
-    .range([0, width])
-    .clamp(true);
+        .domain([0, 180])
+        .range([0, width])
+        .clamp(true);
 
-var brush = d3.svg.brush()
-    .x(x)
-    .extent([0, 0])
-    .on("brush", brushed);
+    var brush = d3.svg.brush()
+        .x(x)
+        .extent([0, 0])
+        .on("brush", brushed);
 
-var svgPlot = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var slider = svg3.append("g")
+        .attr("class", "slider")
+        .call(brush);
 
-svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height / 2 + ")")
-    .call(d3.svg.axis()
-      .scale(x)
-      .orient("bottom")
-      .tickFormat(function(d) { return d + "°"; })
-      .tickSize(0)
-      .tickPadding(12))
-  .select(".domain")
-  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
-    .attr("class", "halo");
+    slider.selectAll(".extent,.resize")
+        .remove();
 
-var slider = svg.append("g")
-    .attr("class", "slider")
-    .call(brush);
+    slider.select(".background")
+        .attr("height", height);
 
-slider.selectAll(".extent,.resize")
-    .remove();
+    var handle = slider.append("circle")
+        .attr("class", "handle")
+        .attr("transform", "translate(0," + height / 2 + ")")
+        .attr('r',10);
+        // .attr("x", 10)
+        // .attr("y", 10)
+        // .attr("width", 20)
+        // .attr("height", 40);
 
-slider.select(".background")
-    .attr("height", height);
+    slider.call(brush.event);
 
-var handle = slider.append("circle")
-    .attr("class", "handle")
-    .attr("transform", "translate(0," + height / 2 + ")")
-    .attr("r", 9);
 
-slider
-    .call(brush.event)
-  .transition() // gratuitous intro!
-    .duration(750)
-    .call(brush.extent([70, 70]))
-    .call(brush.event);
+    function brushed() {
+        var value = brush.extent()[0];
 
-function brushed() {
-  var value = brush.extent()[0];
+        if (d3.event.sourceEvent) { // not a programmatic event
+            value = x.invert(d3.mouse(this)[0]);
+            brush.extent([value, value]);
+        }
 
-  if (d3.event.sourceEvent) { // not a programmatic event
-    value = x.invert(d3.mouse(this)[0]);
-    brush.extent([value, value]);
-  }
+        handle.attr("cx", x(value));
 
-  handle.attr("cx", x(value));
-  d3.select("handle")
-      .style("fill", d3.hsl(value, .8, .8))
-        .attr('r', (value));
-}
-    
-    
-    
-    
-}
+    }
 
-    
-    
-//draw axis 
+
+
+    //draw axis
     svg2.append('g')
-        .attr('class','axis x')
-        .attr('transform','translate(0,'+height+')')
+        .attr('class', 'axis x')
+        .attr('transform', 'translate(0,' + height + ')')
         .call(axisX);
     svg2.append('g')
-        .attr('class','axis y')
+        .attr('class', 'axis y')
         .call(axisY);
 
-    
-//draw linechart    
-lineChart(portNested, scaleX, scaleY);
 
-function lineChart(data, scaleX, scaleY){
+    //draw linechart
+    lineChart(portNested, scaleX, scaleY);
 
-    //Draw LINE
-    var line = d3.svg.line()
-        .x(function(d){ return scaleX(d.year);})
-        .y(function(d){ return scaleY(d.containers);})
-        .interpolate('cardinal');  //or 'basis'
+    function lineChart(data, scaleX, scaleY) {
 
-
-    var ports = svg2.selectAll('.port') //all 50 porst
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('class','port');
-
-    ports.append('path')
-        .datum(function(d){return d.values;})
-        .attr('d', line)
-        .attr('stroke', 'black')
-        .attr('fill', 'rgba(0,0,0,0)');
+        //Line Generator
+        var line = d3.svg.line()
+            .x(function(d) {
+                return scaleX(d.year);
+            })
+            .y(function(d) {
+                return scaleY(d.containers);
+            })
+            .interpolate('cardinal'); //or 'basis'
 
 
-    //Draw DOTS
-    svg2.append("g")
-        .classed("dots", true)
-        .selectAll("g")
-        .data(data)
-        .enter()    //create 50 empty placeholders
-        .append("g")
-        .attr("class", function(d) {return d.key; })
-        .selectAll('.dot')
-        .data(function(d){ return d.values; })
-        .enter()
-        .append('circle')
-        .attr('class', 'dot')
-        .attr('cx', function(d){return scaleX(d.year);})
-        .attr('cy',function(d){return scaleY(d.containers);})
-        .attr("containerValue", function(d) { return d.containers; })
-        .style('fill', 'rgba(83,121,153,.3)')
-        .attr("r", 0)
-        .transition().duration(600)
-        .attr("r",function(d){return scaleCirc(d.containers);});
+        var ports = svg2.selectAll('.port') //all 50 porst
+            .data(data)
+            .enter()
+            .append('g')
+            .attr('class', 'port');
+
+        ports.append('path')
+            .datum(function(d) {
+                return d.values;
+            })
+            .attr('d', line)
+            .attr('stroke', 'gray')
+            .attr('fill', 'rgba(0,0,0,0)');
+
+        var portG = svg2.selectAll('.portSize')
+            .data(data)
+            .enter()
+            .append("g")
+            .classed("postSize", true);
+
+        portG.selectAll("circle")
+            .data(function(d) {
+                return d.values;
+            })
+            .enter()
+            .append('circle')
+            .classed('dot', true)
+            .attr("r", 3)
+            .attr('cx', function(d) {
+                return scaleX(d.year);
+            })
+            .attr('cy', function(d) {
+                return scaleY(d.containers);
+            })
+            .style("stroke", 'rgba(255,255,255,1)')
+            .style('stroke-width', .5)
+            .style('fill', 'rgba(83,121,153,.2)');
+
+        // .transition().duration(600)
+        // .attr("r", function(d) {
+        //     return scaleCirc(d.containers);
+        // });
+
+
+        ports.append("text")
+            .datum(function(d) {
+                return {
+                    name: d.key,
+                    value: d.values[d.values.length - 1],
+                    rank: d.values[d.values.length - 1].ranking
+                };
+            })
+            .attr("transform", function(d) {
+                return "translate(" + scaleX(d.value.year) + "," + scaleY(d.value.containers) + ")";
+            })
+            .attr("x", 10)
+            .attr("dy", ".35em")
+            .text(function(d) {
+                return d.rank + "     " + d.name;
+            });
     }
-    
-    
-}    
-    
+
+
+}
 
 
 
-
-
-
-function parsePorts(d){
+function parsePorts(d) {
 
     return {
         ranking: +d.Ranking,
@@ -309,5 +301,3 @@ function parsePorts(d){
         lat: +d.Latitude
     }
 }
-
-
