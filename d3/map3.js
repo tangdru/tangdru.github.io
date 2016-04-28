@@ -1,6 +1,6 @@
 var margin = {
         t: 20,
-        r: 200,
+        r: 300,
         b: 100,
         l: 100
     },
@@ -138,43 +138,35 @@ function DataLoaded(err, data, mapData) {
             .transition().duration(200)
             .attr("r", 0)
             .remove();
-
-        slider.on("slide", function(event, value) {
-            var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
-            // sliderLabel.text(intValue);
-
-            // Hide the circles which the year is larger than the slide value
-            d3.selectAll(".dot").filter(function(d) {
-                    return d.year > intValue;
-                })
-                .transition().duration(100)
-                .attr("r", "0");
-
-            // Show circles which the year is smaller or equal
-            d3.selectAll(".dot")
-.transition().duration(200)
-                .attr("r", function(d) {
-                    if (d.year - 2 < intValue && d.year <= intValue) {
-                        return scaleCirc(d.containers);
-                    } else {
-                        return 0;
-                    }
-                });
-        });
-        d3.select("#slider")
-            .append("div")
-            .attr("class", "sliderItem")
-            .call(slider);
     }
 
+    slider.on("slide", function(event, value) {
+        var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
+        // sliderLabel.text(intValue);
 
+        // Hide the circles which the year is larger than the slide value
+        d3.selectAll(".dot").filter(function(d) {
+                return d.year > intValue;
+            })
+            .transition().duration(100)
+            .attr("r", "0");
 
-    //slider
+        // Show circles which the year is smaller or equal
+        d3.selectAll(".dot")
+            .transition().duration(200)
+            .attr("r", function(d) {
+                if (d.year - 2 < intValue && d.year <= intValue) {
+                    return scaleCirc(d.containers);
+                } else {
+                    return 0;
+                }
+            });
+    });
 
-
-
-
-
+    d3.select("#slider")
+        .append("div")
+        .attr("class", "sliderItem")
+        .call(slider);
 
 
     //draw axis
@@ -230,7 +222,7 @@ function DataLoaded(err, data, mapData) {
             .enter()
             .append('circle')
             .classed('dot', true)
-            .attr("r", 3)
+            .attr("r", 5)
             .attr('cx', function(d) {
                 return scaleX(d.year);
             })
