@@ -159,24 +159,24 @@ function DataLoaded(err, data, mapData) {
     }
 
     slider.on("slide", function(event, value) {
-        var intValue = parseInt(value); // the value have decimals. Need to parse it to a int
+        var intValue = parseInt(value);
         // sliderLabel.text(intValue);
 
-        // Hide the circles which the year is larger than the slide value
+
         d3.selectAll(".dot").filter(function(d) {
                 return d.year > intValue;
             })
             .transition().duration(200)
-            .attr("r", "0");
+            .attr("r", "3");
 
-        // Show circles which the year is smaller or equal
         d3.selectAll(".dot")
             .transition(100).duration(150)
             .attr("r", function(d) {
                 if (d.year == intValue) {
-                    return scaleCirc(2 * d.containers);
+                    return scaleCirc(d.containers);
+                    // return 12;
                 } else {
-                    return 0;
+                    return 3;
                 }
             });
     });
@@ -247,7 +247,7 @@ function DataLoaded(err, data, mapData) {
             .enter()
             .append('circle')
             .classed('dot', true)
-            .attr("r", 2)
+            .attr("r", 3)
             .attr('cx', function(d) {
                 return scaleX(d.year);
             })
