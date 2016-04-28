@@ -14,8 +14,8 @@ var svg1 = d3.select('#plot').append('svg')
     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
 var svg2 = d3.select('#plot2').append('svg')
-    .attr('width', width + margin.l + margin.r)
-    .attr('height', height + margin.t + margin.b)
+    .attr('width', width/1.5 + margin.l + margin.r)
+    .attr('height', height/1.5 + margin.t + margin.b)
     .append('g').attr('class', 'lineGraph')
     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
@@ -75,8 +75,8 @@ function DataLoaded(err, data, mapData) {
     var scaleCirc = d3.scale.sqrt().domain([yMin, yMax]).range([1.5, 30]);
 
     //container axis
-    var scaleX = d3.scale.linear().domain([xMin, xMax]).range([0, width])
-    var scaleY = d3.scale.linear().domain([0, yMax]).range([height, 0]);
+    var scaleX = d3.scale.linear().domain([xMin, xMax]).range([0, width/1.5])
+    var scaleY = d3.scale.linear().domain([0, yMax]).range([height/1.5, 0]);
 
 
     var axisX = d3.svg.axis()
@@ -239,11 +239,12 @@ function DataLoaded(err, data, mapData) {
             .datum(function(d) {
                 return d.values;
             })
+            .classed('lines',true)
             .attr('d', line)
             .attr('stroke', 'gray')
             .attr('fill', 'rgba(0,0,0,0)')
             .on("mouseover", function(d) {
-                d3.select(this).style("stroke", "black").style('stroke-width', '1pt');
+                d3.select(this).classed('selected',true).style("stroke", "black").style('stroke-width', '1pt');
             })
 
         .on("mouseout", function(d) {
@@ -295,6 +296,7 @@ function DataLoaded(err, data, mapData) {
                     rank: d.values[d.values.length - 1].ranking
                 };
             })
+            .classed('chartText',true)
             .attr("transform", function(d) {
                 return "translate(" + scaleX(d.value.year) + "," + scaleY(d.value.containers) + ")";
             })

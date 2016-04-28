@@ -30,9 +30,9 @@ p {
 }
 
 .sliderItem {
-  width:785px;
+  width:650px;
   margin-top:-120px;
-  margin-left: 50px;
+  margin-left: 100px;
   margin-bottom:70px;
 }
 
@@ -61,6 +61,11 @@ div.tooltip {
 .plot2 {
     position: left;
     width: 750px;
+}
+
+.empty{
+  width: 300px;
+  height: 1000px;
 }
 
 .col-lg-3 {
