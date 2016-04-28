@@ -8,7 +8,8 @@ body {
 
 h1,
 strong {
-  color: hsla(0, 15%, 40%, 1.0);
+  color: white;
+  font-size: 48px;
   text-transform: uppercase;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin-top: 1.5em;
@@ -17,16 +18,22 @@ strong {
 
 
 h2 {
-  color: hsla(0, 15%, 40%, 1.0);
+  font-size: 24px;
+  color: white;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin-top: .1em;
   margin-bottom: 0em;
 }
 
+p {
+    color: rgba(43,81,113, 1.0);
+}
+
 .sliderItem {
-  width:1000px;
-  margin-top:10px;
-  margin-bottom:20px;
+  width:785px;
+  margin-top:-120px;
+  margin-left: 50px;
+  margin-bottom:70px;
 }
 
 div.tooltip {
@@ -44,4 +51,26 @@ div.tooltip {
     border-radius: 8px;
     pointer-events: none;
     color: rgba(0,0,0,1);
+}
+
+.plot {
+    position: left;
+    height: 300px;
+}
+
+.plot2 {
+    position: left;
+    width: 750px;
+}
+
+.col-lg-3 {
+    background: rgba(83,121,153, 0.5);
+}
+.col-med-3
+{
+    background: rgba(83,121,153, 0.5);
+}
+.col-sm-3
+{
+    background: rgba(83,121,153, 0.5);
 }

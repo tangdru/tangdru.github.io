@@ -3,27 +3,46 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Number of containers by top 50 ports</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>SEABORNE TRADE</title>
+
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <script src="js/d3.slider.js"></script>
     <script src="lib/queue/queue.min.js"></script>
 
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/newSlider.css" />
 
 </head>
 
 <body>
-    <h1>SEABORNE TRADE</h1>
-    <h2>2004-2015 Global container traffic for the 50 busiest seaports</h2>
-    <p>Sea-going container traffic is the life blood of global capatilism. Here, you can explore the top 50 shipping ports with regard to the number of containers (in 20' units) shipped per year</p>
+    <div class="container-fluid">
+        <div class = "row">
+            <div class = "col-lg-3 col-med-3 col-sm-3">
+                <section>
+                <h1>SEABORNE TRADE</h1><br>
+                <h2>Global container traffic for the 50 busiest seaports 2004–2015</h2><br>
+                <p>Sea-going container traffic is the life blood of global capatilism. Here, you can explore the top 50 shipping ports by quantity of containers (in 20' units) shipped per year.</p>
+                </section>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9">
+                <div class="plot" id="plot"></div>
+            </div>
+        </div><!-- close row -->
+        <div class = "row">
+            <div class = "col-lg-3 col-med-3">
+                <div class="empty">
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="slide" id="slider"></div>
+                <div class="plot2" id="plot2"></div>
+            </div>
+        </div>
 
-    <div class="container">
-        <div class="plot" id="plot"></div>
-        <div class="slide" id="slider"></div>
-        <div class="plot2" id="plot2"></div>
 
         <!-- <div id="slider3"></div> -->
 

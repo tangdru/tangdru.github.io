@@ -105,8 +105,8 @@ function DataLoaded(err, data, mapData) {
 
     function map(data) {
         var projection = d3.geo.equirectangular()
-            .scale(170)
-            .translate([width / 2, height / 2])
+            .scale(128)
+            .translate([width / 2-margin.l*1.5, height / 2-margin.t*3])
             .precision(.1);
 
         var geoPath = d3.geo.path().projection(projection);
@@ -143,14 +143,16 @@ function DataLoaded(err, data, mapData) {
                 tooltip1.transition()
                     .duration(100)
                     .style("opacity", .9);
-                tooltip1.html(d.port + "<br>" + "# of containers " + d.containers)
+                tooltip1.html(d.port + "<br>" + d.containers + " Containers ") //at
                     .style("left", (d3.event.pageX + 14) + "px")
                     .style("top", (d3.event.pageY - 14) + "px");
+                d3.select(this).style('fill', 'rgba(83,121,153,1)'); //at
             })
             .on("mouseout", function(d) {
                 tooltip1.transition()
                     .duration(1000)
                     .style("opacity", 0);
+                d3.select(this).style('fill', 'rgba(83,121,153,.2)'); //at
             });
         nodes.exit()
             .transition().duration(200)
@@ -273,18 +275,17 @@ function DataLoaded(err, data, mapData) {
                 tooltip1.transition()
                     .duration(100)
                     .style("opacity", .9);
-                tooltip1.html(d.port + "<br>" + "# of containers " + d.containers)
+                tooltip1.html(d.port + "<br>" + d.containers + " Containers ") //at changes
                     .style("left", (d3.event.pageX + 14) + "px")
                     .style("top", (d3.event.pageY - 14) + "px");
+                d3.select(this).style('fill', 'rgba(83,121,153,1)'); //at
             })
             .on("mouseout", function(d) {
                 tooltip1.transition()
                     .duration(1000)
-                    .style("opacity", 0)
+                    .style("opacity", 0);
+                d3.select(this).style('fill', 'rgba(83,121,153,.2)'); //at changes
             });
-
-
-
 
         ports.append("text")
             .datum(function(d) {
@@ -303,7 +304,6 @@ function DataLoaded(err, data, mapData) {
                 return d.rank + "     " + d.name;
             });
     }
-
 
 }
 

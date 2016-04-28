@@ -299,7 +299,7 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 25,New York and New Jersey,United States,North America,2013,5467000,-74.09,40.676
 25,New York and New Jersey,United States,North America,2014,5470000,-74.09,40.676
 25,New York and New Jersey,United States,North America,2015,5770000,-74.09,40.676
-26,Yingkou,China,East Asia & Pacific,2004,0,122.046,40.691
+26,Yingkou,China,East Asia & Pacific,2004,634000,122.046,40.691
 26,Yingkou,China,East Asia & Pacific,2005,634000,122.046,40.691
 26,Yingkou,China,East Asia & Pacific,2006,838000,122.046,40.691
 26,Yingkou,China,East Asia & Pacific,2007,1371000,122.046,40.691
@@ -311,7 +311,7 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 26,Yingkou,China,East Asia & Pacific,2013,5301000,122.046,40.691
 26,Yingkou,China,East Asia & Pacific,2014,5300000,122.046,40.691
 26,Yingkou,China,East Asia & Pacific,2015,5610000,122.046,40.691
-27,Lianyungang,China,East Asia & Pacific,2004,0,119.775,34.439
+27,Lianyungang,China,East Asia & Pacific,2004,1005000,119.775,34.439
 27,Lianyungang,China,East Asia & Pacific,2005,1005000,119.775,34.439
 27,Lianyungang,China,East Asia & Pacific,2006,1302000,119.775,34.439
 27,Lianyungang,China,East Asia & Pacific,2007,2001000,119.775,34.439
@@ -455,9 +455,9 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 38,Manila,Philippines,East Asia & Pacific,2013,3770000,120.968,14.587
 38,Manila,Philippines,East Asia & Pacific,2014,3770000,120.968,14.587
 38,Manila,Philippines,East Asia & Pacific,2015,3650000,120.968,14.587
-39,Piraeus,Greece,Europe & Central Asia,2004,0,23.631,37.939
-39,Piraeus,Greece,Europe & Central Asia,2005,0,23.631,37.939
-39,Piraeus,Greece,Europe & Central Asia,2006,0,23.631,37.939
+39,Piraeus,Greece,Europe & Central Asia,2004,1373000,23.631,37.939
+39,Piraeus,Greece,Europe & Central Asia,2005,1373000,23.631,37.939
+39,Piraeus,Greece,Europe & Central Asia,2006,1373000,23.631,37.939
 39,Piraeus,Greece,Europe & Central Asia,2007,1373000,23.631,37.939
 39,Piraeus,Greece,Europe & Central Asia,2008,434000,23.631,37.939
 39,Piraeus,Greece,Europe & Central Asia,2009,665000,23.631,37.939
@@ -467,12 +467,12 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 39,Piraeus,Greece,Europe & Central Asia,2013,3164000,23.631,37.939
 39,Piraeus,Greece,Europe & Central Asia,2014,3160000,23.631,37.939
 39,Piraeus,Greece,Europe & Central Asia,2015,3590000,23.631,37.939
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2004,0,29.234,40.871
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2005,0,29.234,40.871
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2006,0,29.234,40.871
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2007,0,29.234,40.871
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2008,0,29.234,40.871
-40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2009,0,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2004,2540000,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2005,2540000,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2006,2540000,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2007,2540000,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2008,2540000,29.234,40.871
+40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2009,2540000,29.234,40.871
 40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2010,2540000,29.234,40.871
 40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2011,2686000,29.234,40.871
 40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2012,3097000,29.234,40.871
@@ -481,15 +481,15 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 40,Ambarli (Istanbul),Turkey,Europe & Central Asia,2015,3490000,29.234,40.871
 41,Seattle/Tacoma,United States,North America,2004,3574000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2005,4154000,-122.412,47.265
-41,Seattle/Tacoma,United States,North America,2006,0,-122.412,47.265
-41,Seattle/Tacoma,United States,North America,2007,0,-122.412,47.265
+41,Seattle/Tacoma,United States,North America,2006,4154000,-122.412,47.265
+41,Seattle/Tacoma,United States,North America,2007,4154000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2008,3565844,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2009,3130449,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2010,3595000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2011,3519000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2012,3597000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2013,3311000,-122.412,47.265
-41,Seattle/Tacoma,United States,North America,2014,0,-122.412,47.265
+41,Seattle/Tacoma,United States,North America,2014,3311000,-122.412,47.265
 41,Seattle/Tacoma,United States,North America,2015,3430000,-122.412,47.265
 42,Savannah,United States,North America,2004,1662000,-81.142,32.13
 42,Savannah,United States,North America,2005,1902000,-81.142,32.13
@@ -503,19 +503,19 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 42,Savannah,United States,North America,2013,3034000,-81.142,32.13
 42,Savannah,United States,North America,2014,3030000,-81.142,32.13
 42,Savannah,United States,North America,2015,3350000,-81.142,32.13
-43,Col„n,Panama,Latin America & Caribbean,2004,2150000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2005,1947000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2006,0,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2007,2262000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2008,1856000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2009,2802000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2010,1600000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2011,1900000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2012,2060000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2013,3356000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2014,3360000,-79.884,9.361
-43,Col„n,Panama,Latin America & Caribbean,2015,3290000,-79.884,9.361
-44,Balboa,Panama,Latin America & Caribbean,2004,0,-79.568,8.961
+43,Col‹n,Panama,Latin America & Caribbean,2004,2150000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2005,1947000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2006,1947000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2007,2262000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2008,1856000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2009,2802000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2010,1600000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2011,1900000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2012,2060000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2013,3356000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2014,3360000,-79.884,9.361
+43,Col‹n,Panama,Latin America & Caribbean,2015,3290000,-79.884,9.361
+44,Balboa,Panama,Latin America & Caribbean,2004,663000,-79.568,8.961
 44,Balboa,Panama,Latin America & Caribbean,2005,663000,-79.568,8.961
 44,Balboa,Panama,Latin America & Caribbean,2006,988000,-79.568,8.961
 44,Balboa,Panama,Latin America & Caribbean,2007,2167000,-79.568,8.961
@@ -527,24 +527,24 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 44,Balboa,Panama,Latin America & Caribbean,2013,3064000,-79.568,8.961
 44,Balboa,Panama,Latin America & Caribbean,2014,3060000,-79.568,8.961
 44,Balboa,Panama,Latin America & Caribbean,2015,3240000,-79.568,8.961
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2004,0,112.715,-7.216
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2005,0,112.715,-7.216
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2006,0,112.715,-7.216
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2007,0,112.715,-7.216
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2008,0,112.715,-7.216
-45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2009,0,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2004,3030000,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2005,3030000,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2006,3030000,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2007,3030000,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2008,3030000,112.715,-7.216
+45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2009,3030000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2010,3030000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2011,2644000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2012,2849000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2013,3001000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2014,3000000,112.715,-7.216
 45,Tanjung Perak (Surabaya),Indonesia,East Asia & Pacific,2015,3110000,112.715,-7.216
-47,Taicang,China,East Asia & Pacific,2004,0,121.193,31.659
-47,Taicang,China,East Asia & Pacific,2005,0,121.193,31.659
-47,Taicang,China,East Asia & Pacific,2006,0,121.193,31.659
-47,Taicang,China,East Asia & Pacific,2007,0,121.193,31.659
-47,Taicang,China,East Asia & Pacific,2008,0,121.193,31.659
-47,Taicang,China,East Asia & Pacific,2009,0,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2004,2212000,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2005,2212000,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2006,2212000,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2007,2212000,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2008,2212000,121.193,31.659
+47,Taicang,China,East Asia & Pacific,2009,2212000,121.193,31.659
 47,Taicang,China,East Asia & Pacific,2010,2212000,121.193,31.659
 47,Taicang,China,East Asia & Pacific,2011,3058000,121.193,31.659
 47,Taicang,China,East Asia & Pacific,2012,4015000,121.193,31.659
@@ -575,12 +575,12 @@ Ranking,Port,Country,Region,Year,Container,Longitude,Latitude
 49,Gioia Tauro,Italy,Europe & Central Asia,2013,3087000,15.908,38.457
 49,Gioia Tauro,Italy,Europe & Central Asia,2014,3090000,15.908,38.457
 49,Gioia Tauro,Italy,Europe & Central Asia,2015,2970000,15.908,38.457
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2004,0,121.74,25.142
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2005,0,121.74,25.142
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2006,0,121.74,25.142
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2007,0,121.74,25.142
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2008,0,121.74,25.142
-50,Keelung + Taipei,Taiwan,East Asia & Pacific,2009,0,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2004,2199000,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2005,2199000,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2006,2199000,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2007,2199000,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2008,2199000,121.74,25.142
+50,Keelung + Taipei,Taiwan,East Asia & Pacific,2009,2199000,121.74,25.142
 50,Keelung + Taipei,Taiwan,East Asia & Pacific,2010,2199000,121.74,25.142
 50,Keelung + Taipei,Taiwan,East Asia & Pacific,2011,2403000,121.74,25.142
 50,Keelung + Taipei,Taiwan,East Asia & Pacific,2012,2705000,121.74,25.142
