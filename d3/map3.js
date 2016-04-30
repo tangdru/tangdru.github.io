@@ -19,12 +19,6 @@ var svg2 = d3.select('#plot2').append('svg')
     .append('g').attr('class', 'lineGraph')
     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
 
-// var svg3 = d3.select('#plot').append('svg')
-//     .attr('width', width + margin.l + margin.r)
-//     .attr('height', height + margin.t + margin.b)
-//     .append('g').attr('class', 'lineGraph')
-//     .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
-
 
 //slider
 var slider = d3.slider().axis(true).min(2004).max(2015);
@@ -39,13 +33,7 @@ var tooltip1 = d3.select("body")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-
-
-// var tooltip = d3.select("body").append("div")
-//     .attr("class", "tooltip")
-//     .style("opacity", 0);
-
-
+//load data
 queue()
     .defer(d3.csv, 'data/topPorts.csv', parsePorts)
     .defer(d3.json, 'data/map.json')
@@ -175,7 +163,6 @@ function DataLoaded(err, data, mapData) {
             .attr("r", function(d) {
                 if (d.year == intValue) {
                     return scaleCirc(d.containers);
-                    // return 10;
                 } else {
                     return 0;
                 }
@@ -276,16 +263,16 @@ function DataLoaded(err, data, mapData) {
                 tooltip1.transition()
                     .duration(100)
                     .style("opacity", .9);
-                tooltip1.html(d.port + "<br>" + d.containers + " Containers ") //at changes
+                tooltip1.html(d.port + "<br>" + d.containers + " Containers ")
                     .style("left", (d3.event.pageX + 14) + "px")
                     .style("top", (d3.event.pageY - 14) + "px");
-                d3.select(this).style('fill', 'rgba(83,121,153,1)'); //at
+                d3.select(this).style('fill', 'rgba(83,121,153,1)');
             })
             .on("mouseout", function(d) {
                 tooltip1.transition()
                     .duration(1000)
                     .style("opacity", 0);
-                d3.select(this).style('fill', 'rgba(83,121,153,.2)'); //at changes
+                d3.select(this).style('fill', 'rgba(83,121,153,.2)');
             });
 
         ports.append("text")

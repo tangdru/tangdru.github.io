@@ -3,7 +3,6 @@ body {
   background-color: rgba(255, 255,255, 1.0);
   color: hsla(0, 10%, 10%, 1.0);
   margin: 2em;
-    margin-top: 0px;
   font-size: 12pt;
 }
 
@@ -26,21 +25,16 @@ h2 {
   margin-bottom: 0em;
 }
 
-h5 {
-  color: white;
-}
-
 p {
     color: rgba(43,81,113, 1.0);
 }
 
 .sliderItem {
   width:650px;
-  margin-top:-310px;
+  margin-top:-120px;
   margin-left: 100px;
-  margin-bottom:-50px;
+  margin-bottom:70px;
 }
-
 
 div.tooltip {
     position: absolute;
@@ -59,14 +53,15 @@ div.tooltip {
     color: rgba(0,0,0,1);
 }
 
-.icon {
-    width: 280px;
-    margin-top: 75px;
+.icon{
+  width: 280;
+  margin-top:75px;
+
+
 }
 
 .plot {
     position: left;
-    margin-left: 30px;
     height: 300px;
 }
 
@@ -75,10 +70,9 @@ div.tooltip {
     width: 750px;
 }
 
-.empty {
-    width: 300px;
-    height: 1000px;
-    /*background: rgba(83,121,153, 0.5);*/
+.empty{
+  width: 300px;
+  height: 1000px;
 }
 
 .col-lg-3 {
