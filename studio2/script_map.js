@@ -35,12 +35,12 @@ function DataLoaded(err, infected, zikaTime, zikaTweets, zikaTweetsHr, mapData){
 //    console.log(zikaTweetsHr);
 
 //map
-    var projection = d3.geo.equirectangular()
+    var projection = d3.geoAlbersUsa() 
                                 .scale(120)
                                 .translate([width/2, height/2])
                                 .precision(.1);
 
-    var geoPath = d3.geo.path().projection(projection);
+    var geoPath = d3.geoPath().projection(projection);
         chart1.append('g')
             .selectAll("path")
             .data(mapData.features)
