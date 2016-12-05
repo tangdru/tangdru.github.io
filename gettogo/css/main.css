@@ -26,7 +26,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+strong {
   color: hsla(0, 15%, 40%, 1.0);
   text-transform: uppercase;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
