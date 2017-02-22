@@ -3,7 +3,7 @@
 <style>
 
 svg {
-  font: 10px sans-serif;
+  font: 8px sans-serif;
 }
 
 .background path {
@@ -122,6 +122,8 @@ d3.csv("test.csv", function(error, cars) {
     .append("text")
       .style("text-anchor", "middle")
       .attr("y", -9)
+      // .attr("transform","translate(0,580)")
+      // .attr("transform", "rotate(-90)" )
       .text(function(d) { return d; });
 
   // Add and store a brush for each axis.
