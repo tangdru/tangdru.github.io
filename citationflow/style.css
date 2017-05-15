@@ -1,0 +1,178 @@
+body{
+	background-color:white;
+  font-family:Helvetica, sans-serif;
+  font-size:40px;
+  font-weight:lighter;
+  font-weight: 100;
+}
+h1{
+font-size:.8em;
+font-weight:lighter;
+}
+h2{
+font-size:.4em;
+font-weight:bolder;
+font-weight: 100;
+}
+h3{
+font-size:.3em;
+font-weight:lighter;
+font-weight: 100;
+}
+h4{
+font-size:.3em;
+font-weight:bold;
+
+}
+p{
+font-size:.3em;
+
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.layer{
+  stroke:white;
+  stroke-width:.15px;
+}
+
+.c2{
+	width:95%;
+	margin:auto;
+}
+/*.cont{
+  width:80%;
+}*/
+.row{
+  width:100%;
+  height:auto;
+}
+.information{
+  width:30%;
+  position:absolute;
+  left:5;
+/*  height:60vh;
+  overflow-y:scroll;*/
+}
+
+.info-scroll{
+  z-index:100;
+  height:30vh;
+  overflow-y:scroll;
+}
+.inline{
+  display:inline-block;
+}
+
+/*Stream graph ----------------------------- */
+#stream{
+  float:left;
+  z-index:1;
+	width:90%;
+	height:70vh;
+}
+
+.hover{
+  opacity:.5;
+}
+.myactive{
+  opacity:.5;
+}
+/*Stream graph end -----------------------------
+--------------------------------------------- */
+
+.active-info{
+  background-color:rgba(250,250,250,.8);
+}
+
+
+/*singleAxis graph ----------------------------- */
+#singleAxis{
+  float:right;
+	width:10%;
+	height:70vh;
+}
+
+/*singleAxis graph lines*/
+.line{
+  stroke-width:.1px;
+	opacity:.2;
+	color:black;
+	fill:black;
+	stroke:black;
+}
+/*singleAxis graph filtered lines*/
+.highlight{
+  opacity:1;
+  stroke-width:2px;
+}
+
+/*singleAxis end -------------------------------
+--------------------------------------------- */
+
+
+
+
+.selectedLine{
+  stroke:red;
+  stroke-width:5px;
+}
+
+
+/* ----------------  axis -------------- */
+.axis path, .axis line{
+  fill: none;
+  stroke: #777;
+  stroke-width:.5px;
+  shape-rendering: crispEdges;
+  
+}
+.tick text{
+  font-size:.3em;
+}
+
+.tick line {
+  fill: none;
+  stroke: #777;
+  stroke-width:.5px;
+}
+/*axis end ----------------------------------
+--------------------------------------------- */
+
+
+.brush{
+  fill:red;
+  opacity:.5;
+  color:red;
+  border:solid red 1px;
+}
+
+
+/* ---------------- dropdown menus -------------- */
+.controls{
+    height:100px;
+    width:100%;
+    position:relative;
+}
+.control-module{
+    float:left;
+    height:100%;
+}
+    .controls .drop-down{
+        width:60%;
+    }
+        .controls .drop-down .select{
+            width:20%;
+            float:left;
+            margin:0 5% 0 0;
+        }
+    .controls .context{
+        width:80%;
+    }
+
+/*dropdown menus end ------------------------
+--------------------------------------------- */
+
+
+

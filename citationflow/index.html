@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cell press</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,500,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+  </head>
+  <body>
+
+<!-- 
+    <div class="chart" id="line"></div> -->
+
+<div class="c2">
+<div class="row">
+    <h1>10 Year Anniversary Citation Project</h1>
+</div>
+
+<div class="row">
+
+ <div class="controls clearfix">
+    <div class="control-module drop-down">
+        <div class="select">
+            <h2>Cell Type</h2>
+            <select class="form-control cell_type">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="select">
+            <h2>Species</h2>
+            <select class="form-control species">
+                <option value="all">All</option>
+            </select>
+        </div>
+        <div class="select">
+            <h2>Publication Year</h2>
+            <select class="form-control year">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="select">
+            <h2>Author</h2>
+            <select class="form-control names">
+                <option value="all">All</option>
+            </select>
+        </div>
+
+
+
+<!-- <div class="select">
+  <h3 for="tags">Search Author </h3>
+  <input id="tags">
+</div> -->
+
+
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+
+  <div class="row">
+ 
+
+<!--   this is for the main citation flow graph -->
+    <div id="stream">
+    <h4 style="float:right; margin-right: 50px;">Citations Per Year</h4>
+         
+    </div>
+
+
+
+<!--       this is for the graph of total citations -->
+    <div id="singleAxis"> 
+       <h4 style="float:left;">Total Citations</h4>
+    </div>
+   
+
+
+
+    <div class="information">
+      <h4 id="issue-info">
+<!--       Issue <span id="issue"></span> Vol <span id="volume"></span> -->
+      </h4>
+      <h2 id="title"></h2>
+      
+      <div class="info-scroll">
+      <h3 id="authors"></h3>
+          <p id="abstract"></p>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+  	<script src="https://use.typekit.net/jhn3exp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3-queue.v2.min.js"></script>
+
+
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="lib/crossfilter/crossfilter.js"></script>
+
+
+
+   <script src="script1.js"></script>
+
+  </body>
+</html>
